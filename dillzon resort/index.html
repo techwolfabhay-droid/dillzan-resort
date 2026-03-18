@@ -1,0 +1,578 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0"/>
+<meta name="theme-color" content="#0d1820"/>
+<title>The Dillzan Resort — Alibaug</title>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,600;0,700;1,400&family=Jost:wght@300;400;500;600;700&display=swap" rel="stylesheet"/>
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"/>
+<link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+<!-- LOADER -->
+<div class="loader" id="loader">
+  <img class="loader-logo" src="images/logo.jpeg" alt="Dillzan"/>
+  <div class="loader-bar"><div class="loader-fill"></div></div>
+  <p class="loader-txt">Preparing your paradise...</p>
+</div>
+
+<!-- NAVBAR -->
+<nav class="navbar" id="navbar">
+  <div class="nav-logo"><img src="images/logo.jpeg" alt="The Dillzan Resort"/></div>
+  <ul class="nav-links">
+    <li><a href="#home" class="nav-link">Home</a></li>
+    <li><a href="#about" class="nav-link">About</a></li>
+    <li><a href="#owner" class="nav-link">Owner</a></li>
+    <li><a href="#rooms" class="nav-link">Rooms</a></li>
+    <li><a href="#amenities" class="nav-link">Amenities</a></li>
+    <li><a href="#gallery" class="nav-link">Gallery</a></li>
+    <li><a href="#contact" class="nav-link">Contact</a></li>
+  </ul>
+  <a href="#contact" class="btn-reserve">Book Now</a>
+  <button class="hamburger" id="ham" aria-label="Menu"><span></span><span></span><span></span></button>
+</nav>
+
+<!-- MOBILE NAV -->
+<div class="mob-nav" id="mobNav">
+  <button class="mob-close" id="mobClose"><i class="fas fa-times"></i></button>
+  <ul>
+    <li><a href="#home" class="mob-link">Home</a></li>
+    <li><a href="#about" class="mob-link">About</a></li>
+    <li><a href="#owner" class="mob-link">Owner</a></li>
+    <li><a href="#rooms" class="mob-link">Rooms</a></li>
+    <li><a href="#amenities" class="mob-link">Amenities</a></li>
+    <li><a href="#gallery" class="mob-link">Gallery</a></li>
+    <li><a href="#contact" class="mob-link">Contact</a></li>
+  </ul>
+  <a href="#contact" class="mob-book">Book Now</a>
+</div>
+
+<!-- HERO -->
+<section id="home" class="hero">
+  <img class="hero-img" src="images/hero-bg.jpeg" alt="The Dillzan Resort"/>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <div class="hero-badges">
+      <span class="h-badge"><i class="fas fa-map-marker-alt"></i> Alibaug, Maharashtra</span>
+      <span class="h-badge"><i class="fas fa-ship"></i> 1 Min from Mandwa Jetty</span>
+    </div>
+    <p class="hero-eyebrow">Welcome to</p>
+    <h1 class="hero-title">
+      <span class="ht-the">The</span>
+      <span class="ht-main">Dillzan</span>
+      <span class="ht-resort">Resort</span>
+    </h1>
+    <p class="hero-sub">Closest resort to Mandwa Jetty · Parsi &amp; Konkan Cuisine</p>
+    <div class="hero-price">
+      <span class="hp-label">All-Inclusive Stay</span>
+      <span class="hp-price">&#8377;3,999<small>/person/night</small></span>
+      <span class="hp-note">Till 25 Dec &nbsp;·&nbsp; &#8377;4,500 after</span>
+    </div>
+    <div class="hero-ctas">
+      <a href="#contact" class="btn-gold ripple"><i class="fab fa-whatsapp"></i> Book Your Stay</a>
+      <a href="#about" class="btn-ghost">Explore Resort</a>
+    </div>
+  </div>
+  <div class="hero-scroll">
+    <div class="scroll-mouse"><div class="scroll-dot"></div></div>
+    <span>Scroll</span>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats" id="statsBar">
+  <div class="stat"><i class="fas fa-bed stat-icon"></i><span class="stat-num" data-to="15">0</span><span class="stat-label">Rooms</span></div>
+  <div class="stat"><i class="fas fa-utensils stat-icon"></i><span class="stat-num" data-to="4">0</span><span class="stat-label">Meals/Day</span></div>
+  <div class="stat"><i class="fas fa-users stat-icon"></i><span class="stat-num" data-to="45">0</span><span class="stat-label">Guests Capacity</span></div>
+  <div class="stat"><i class="fas fa-ship stat-icon"></i><span class="stat-num" data-to="1">0</span><span class="stat-label">Min from Jetty</span></div>
+</div>
+
+<!-- ABOUT -->
+<section id="about" class="about s-pad">
+  <div class="container">
+    <div class="about-inner">
+      <div class="about-imgs reveal">
+        <div class="ab-main"><img src="images/about.jpeg" alt="The Dillzan Resort"/></div>
+        <div class="ab-small"><img src="images/hero-bg.jpeg" alt="Resort Night View"/></div>
+        <div class="ab-badge"><span>Est.</span><strong>2010</strong></div>
+      </div>
+      <div class="about-text reveal">
+        <p class="sec-label">Our Story</p>
+        <h2 class="sec-title">A Coastal Haven in Alibaug</h2>
+        <div class="gold-line"></div>
+        <p>Nestled just <strong style="color:var(--gold)">1 minute by car from Mandwa Jetty</strong>, The Dillzan Resort is the closest resort to the M2M RoRo — step off and you're almost here. 1 km inside from the main road, surrounded by lush greenery.</p>
+        <p>We are a <strong style="color:var(--gold)">15-room resort</strong> welcoming families, groups and couples. Famous for <strong style="color:var(--gold)">authentic Parsi cuisine</strong> and <strong style="color:var(--gold)">Gavathi / Konkan style food</strong> — every meal made with love and tradition.</p>
+        <div class="price-card">
+          <div class="pc-left">
+            <span class="pc-label">All-Inclusive Tariff</span>
+            <span class="pc-price">&#8377;3,999<small>/person/night</small></span>
+            <span class="pc-note">Valid till 25th December</span>
+            <span class="pc-price pc-note2">&#8377;4,500<small>/person/night</small></span>
+            <span class="pc-note" style="color:var(--grey)">After 25th December</span>
+          </div>
+          <div class="pc-right">
+            <div class="pc-feat"><i class="fas fa-check"></i> Breakfast</div>
+            <div class="pc-feat"><i class="fas fa-check"></i> Lunch</div>
+            <div class="pc-feat"><i class="fas fa-check"></i> Snacks</div>
+            <div class="pc-feat"><i class="fas fa-check"></i> Dinner</div>
+          </div>
+        </div>
+        <div class="about-cta">
+          <a href="#rooms" class="btn-gold ripple"><i class="fas fa-door-open"></i> View Rooms &amp; Book</a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+
+<!-- ═══════════════════════════════
+     OWNER SECTION
+═══════════════════════════════ -->
+<section id="owner" class="owner s-pad">
+  <div class="container">
+    <div class="sec-header reveal" style="margin-bottom:2rem">
+      <p class="sec-label">Meet the Owner</p>
+      <h2 class="sec-title">The Heart Behind Dillzan</h2>
+      <div class="gold-line c"></div>
+    </div>
+    <div class="owner-inner">
+      <div class="owner-photo-wrap reveal">
+        <div class="owner-photo-ring"></div>
+        <!--
+        ╔══════════════════════════════════════════╗
+        ║  OWNER PHOTO                             ║
+        ║  Replace src with owner's actual photo   ║
+        ║  Recommended: Square photo, 400×400px    ║
+        ║  Will be displayed as a circle           ║
+        ╚══════════════════════════════════════════╝
+        -->
+        <img class="owner-photo" id="ownerPhoto" src="images/owner.jpeg"
+             alt="Dillzan Wadia — Owner, The Dillzan Resort"
+             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23E5DDD2\'/%3E%3Ccircle cx=\'100\' cy=\'78\' r=\'38\' fill=\'%23C8960C\' opacity=\'.4\'/%3E%3Cellipse cx=\'100\' cy=\'160\' rx=\'55\' ry=\'45\' fill=\'%23C8960C\' opacity=\'.3\'/%3E%3Ctext x=\'100\' y=\'195\' text-anchor=\'middle\' fill=\'%238B6508\' font-size=\'11\' font-family=\'Georgia\' font-style=\'italic\'%3EDillzan Wadia%3C/text%3E%3C/svg%3E'"/>
+        <span class="owner-badge">Actor &amp; Founder</span>
+      </div>
+      <div class="owner-text reveal">
+        <p class="sec-label">Founder &amp; Owner</p>
+        <h3 class="owner-name">Dillzan Wadia</h3>
+        <p class="owner-title">Actor &nbsp;·&nbsp; Founder &amp; Owner, The Dillzan Resort</p>
+        <div class="owner-films">
+          <span>🎬 Sarfaroshi</span>
+          <span>🎬 Four Pillars of Basement</span>
+          <span>🎬 Bollywood Villa</span>
+        </div>
+        <blockquote class="owner-message" id="ownerMessage">
+          "My aim is to see people enjoy themselves at my resort and feel like they are in their own home. For my guests, there is no 'No' — we want them to experience warmth, comfort, and freedom just like they would in their own house."
+        </blockquote>
+        <p class="owner-desc" id="ownerDesc">
+          Actor Dillzan Wadia, known for films like <em>Sarfaroshi</em>, <em>Four Pillars of Basement</em>, <em>Bollywood Villa</em> and several television shows, has now successfully transitioned into the world of hospitality with the launch of his premium boutique property — <strong>The Dillzan Resort, Alibaug</strong>.
+          <br/><br/>
+          Originally from Vadodara, Dillzan moved to Mumbai to pursue acting, supporting himself by running a small fast-food joint at King Circle while studying at Khalsa Junior College. His dedication earned him roles in acclaimed films before his passion for hospitality led him to develop boutique resorts in Goa and Lonavala — and now, Alibaug.
+          <br/><br/>
+          When asked about his natural hosting abilities, Dillzan says: <em>"This quality comes from my parents. At our home, every guest was treated with love and humility, making them feel completely comfortable. I've simply carried forward those values into my profession."</em>
+          <br/><br/>
+          From facing the camera to creating curated guest experiences, Dillzan Wadia's journey reflects his passion for people, perseverance, and a commitment to redefining boutique hospitality in Alibaug.
+        </p>
+        <p class="owner-sign">— Dillzan Wadia</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ROOMS -->
+<section id="rooms" class="rooms s-pad">
+  <div class="container">
+    <div class="sec-header reveal">
+      <p class="sec-label">Accommodations</p>
+      <h2 class="sec-title">Choose Your Room</h2>
+      <div class="gold-line c"></div>
+      <p class="sec-sub">15 rooms · All-inclusive · &#8377;3,999/night till 25 Dec</p>
+    </div>
+    <div class="rooms-grid">
+      <!-- DELUXE -->
+      <div class="rc reveal">
+        <div class="rc-img"><img src="images/room-deluxe.jpeg" alt="Deluxe Room"/><span class="rc-badge pop">⭐ Popular</span><span class="rc-cnt">×5</span></div>
+        <div class="rc-body">
+          <div class="rc-name">Deluxe Room</div>
+          <div class="rc-occ"><i class="fas fa-user-friends"></i> Double · 2 Guests</div>
+          <div class="rc-feats">
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> King Size Bed</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> AC &amp; Fan</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Pool Access</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
+          </div>
+          <div class="rc-foot">
+            <div class="rc-price"><small>from</small><strong>&#8377;3,999</strong></div>
+            <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
+          </div>
+        </div>
+      </div>
+      <!-- PREMIUM -->
+      <div class="rc reveal">
+        <div class="rc-img"><img src="images/room-premium.jpeg" alt="Premium Room"/><span class="rc-badge prem">👑 Premium</span><span class="rc-cnt">×4</span></div>
+        <div class="rc-body">
+          <div class="rc-name">Premium Room</div>
+          <div class="rc-occ"><i class="fas fa-user-friends"></i> Double · 2 Guests</div>
+          <div class="rc-feats">
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> King Size Bed</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> AC Room</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Garden View</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
+          </div>
+          <div class="rc-foot">
+            <div class="rc-price"><small>from</small><strong>&#8377;3,999</strong></div>
+            <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
+          </div>
+        </div>
+      </div>
+      <!-- TRIPLE -->
+      <div class="rc reveal">
+        <div class="rc-img"><img src="images/room-triple.jpeg" alt="Triple Room"/><span class="rc-badge tri">👥 Triple</span><span class="rc-cnt">×2</span></div>
+        <div class="rc-body">
+          <div class="rc-name">Triple Room</div>
+          <div class="rc-occ"><i class="fas fa-users"></i> Triple · 3 Guests</div>
+          <div class="rc-feats">
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> 3 Beds</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> AC &amp; Fan</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Pool Access</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
+          </div>
+          <div class="rc-foot">
+            <div class="rc-price"><small>from</small><strong>&#8377;3,999</strong></div>
+            <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
+          </div>
+        </div>
+      </div>
+      <!-- FAMILY -->
+      <div class="rc reveal">
+        <div class="rc-img"><img src="images/room-family.jpeg" alt="Family Room"/><span class="rc-badge fam">🏠 Family</span><span class="rc-cnt">×1</span></div>
+        <div class="rc-body">
+          <div class="rc-name">Family Room</div>
+          <div class="rc-occ"><i class="fas fa-home"></i> Family · 4–5 Guests</div>
+          <div class="rc-feats">
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Multiple Beds</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Extra Spacious</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Pool Access</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
+          </div>
+          <div class="rc-foot">
+            <div class="rc-price"><small>from</small><strong>&#8377;3,999</strong></div>
+            <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
+          </div>
+        </div>
+      </div>
+      <!-- DORMITORY -->
+      <div class="rc reveal">
+        <div class="rc-img"><img src="images/room-dorm.jpeg" alt="Dormitory"/><span class="rc-badge dorm">🛏 Dorm</span><span class="rc-cnt">×2</span></div>
+        <div class="rc-body">
+          <div class="rc-name">Dormitory</div>
+          <div class="rc-occ"><i class="fas fa-users"></i> Group · Multiple Beds</div>
+          <div class="rc-feats">
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Multiple Beds</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Best for Groups</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> Pool Access</div>
+            <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
+          </div>
+          <div class="rc-foot">
+            <div class="rc-price"><small>from</small><strong>&#8377;3,999</strong></div>
+            <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AMENITIES -->
+<section id="amenities" class="amenities s-pad">
+  <div class="container">
+    <div class="sec-header reveal">
+      <p class="sec-label">Resort Facilities</p>
+      <h2 class="sec-title">World-Class Amenities</h2>
+      <div class="gold-line c"></div>
+      <p class="sec-sub">Everything for the perfect escape — all at Dillzan</p>
+    </div>
+    <div class="amen-grid" id="amenGrid"></div>
+  </div>
+</section>
+
+<!-- GALLERY -->
+<section id="gallery" class="gallery s-pad">
+  <div class="container">
+    <div class="sec-header reveal">
+      <p class="sec-label">Visual Stories</p>
+      <h2 class="sec-title">Gallery</h2>
+      <div class="gold-line c"></div>
+    </div>
+    <div class="gal-filters">
+      <button class="gf-btn active" data-cat="all">All</button>
+      <button class="gf-btn" data-cat="resort">Resort</button>
+      <button class="gf-btn" data-cat="rooms">Rooms</button>
+      <button class="gf-btn" data-cat="food">Food</button>
+    </div>
+    <div class="gal-grid" id="galGrid"></div>
+  </div>
+  <div class="lightbox" id="lightbox">
+    <button class="lb-close" id="lbClose"><i class="fas fa-times"></i></button>
+    <button class="lb-prev" id="lbPrev"><i class="fas fa-chevron-left"></i></button>
+    <button class="lb-next" id="lbNext"><i class="fas fa-chevron-right"></i></button>
+    <img class="lb-img" id="lbImg" src="" alt=""/>
+    <p class="lb-cap" id="lbCap"></p>
+  </div>
+</section>
+
+<!-- REVIEWS -->
+<section id="reviews" class="reviews">
+  <div class="reviews-bg"><img src="images/reviews-bg.jpeg" alt=""/></div>
+  <div class="reviews-overlay"></div>
+  <div class="container">
+    <div class="sec-header reveal">
+      <p class="sec-label" style="color:var(--gold-y)">Guest Voices</p>
+      <h2 class="sec-title" style="color:#fff">What Our Guests Say</h2>
+      <div class="gold-line c"></div>
+    </div>
+    <div class="rev-swiper swiper">
+      <div class="swiper-wrapper" id="revWrap"></div>
+      <div class="swiper-pagination rev-pag"></div>
+    </div>
+    <div class="rated">
+      <p>Also Rated On</p>
+      <div class="rated-logos">
+        <span><i class="fab fa-google"></i> Google</span>
+        <span><i class="fab fa-tripadvisor"></i> TripAdvisor</span>
+        <span><i class="fas fa-hotel"></i> MakeMyTrip</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact s-pad">
+  <div class="container">
+    <div class="contact-inner">
+      <div class="contact-info reveal">
+        <p class="sec-label">Get in Touch</p>
+        <h2 class="sec-title">Book Your Stay</h2>
+        <div class="gold-line"></div>
+        <p>Ready to experience Alibaug's finest resort? Our team will confirm your booking within 2 hours.</p>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-phone-alt"></i></div>
+          <div><span class="ci-label">Call Us</span><span class="ci-val">+91 77159 66111</span></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-envelope"></i></div>
+          <div><span class="ci-label">Email</span><span class="ci-val" id="cEmail">info@dillzanresort.com</span></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><span class="ci-label">Location</span><span class="ci-val" id="cAddr">Alibaug · 1 km from main road · 1 min from Mandwa Jetty</span></div>
+        </div>
+        <div class="ci-item">
+          <div class="ci-icon"><i class="fas fa-clock"></i></div>
+          <div><span class="ci-label">Check-in / Out</span><span class="ci-val">12:00 PM / 11:00 AM</span></div>
+        </div>
+        <div class="soc-row">
+          <a href="https://wa.me/917715966111" id="waBtn" class="soc-btn wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/the_dilzan_resort?igsh=MWdwaXV3Mnhta3p1aA==" id="igBtn" class="soc-btn ig" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/dillzanresort" id="fbBtn" class="soc-btn fb" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <p class="ig-h"><i class="fab fa-instagram"></i><a href="https://www.instagram.com/the_dilzan_resort?igsh=MWdwaXV3Mnhta3p1aA==" id="igHandle" target="_blank">@the_dilzan_resort</a></p>
+      </div>
+      <div class="bform reveal">
+        <h3>Send Enquiry</h3>
+        <div class="fg"><label>Full Name</label><input type="text" id="bName" placeholder="Your name"/></div>
+        <div class="fg"><label>Phone / WhatsApp</label><input type="tel" id="bPhone" placeholder="+91 XXXXX XXXXX"/></div>
+        <div class="fg"><label>Check-In Date</label><input type="date" id="bIn"/></div>
+        <div class="fg"><label>Check-Out Date</label><input type="date" id="bOut"/></div>
+        <div class="fg"><label>Room Type</label>
+          <select id="bRoom">
+            <option value="">Select Room</option>
+            <option>Deluxe Room (Double ×5)</option>
+            <option>Premium Room (Double ×4)</option>
+            <option>Triple Room (3 Guests ×2)</option>
+            <option>Family Room (4–5 Guests ×1)</option>
+            <option>Dormitory (Group ×2)</option>
+          </select>
+        </div>
+        <div class="fg"><label>No. of Guests</label>
+          <select id="bGuests">
+            <option>1 Person</option><option>2 Persons</option><option>3 Persons</option>
+            <option>4 Persons</option><option>5+ Persons</option>
+          </select>
+        </div>
+        <div class="fg"><label>Special Requests</label><textarea id="bMsg" rows="3" placeholder="Any special requests..."></textarea></div>
+        <button class="btn-gold ripple" style="width:100%;font-size:.88rem;padding:.9rem;" onclick="sendEnq()"><i class="fab fa-whatsapp"></i> Send via WhatsApp</button>
+        <p class="form-note"><i class="fas fa-lock"></i> Your details are private &amp; secure</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+  <div class="footer-body">
+    <div class="container footer-grid">
+      <div class="ft-brand">
+        <img class="ft-logo" src="images/logo.jpeg" alt="The Dillzan Resort"/>
+        <p>Closest resort to Mandwa Jetty, Alibaug. 15 rooms · 40–45 guests · Authentic Parsi &amp; Konkan cuisine. All meals included.</p>
+        <div class="ft-socials">
+          <a href="https://wa.me/917715966111" id="ftWa" class="ft-soc wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+          <a href="https://www.instagram.com/the_dilzan_resort?igsh=MWdwaXV3Mnhta3p1aA==" id="ftIg" class="ft-soc ig" target="_blank"><i class="fab fa-instagram"></i></a>
+          <a href="https://www.facebook.com/dillzanresort" id="ftFb" class="ft-soc fb" target="_blank"><i class="fab fa-facebook-f"></i></a>
+        </div>
+        <p class="ft-ig"><i class="fab fa-instagram"></i> <a href="https://www.instagram.com/the_dilzan_resort?igsh=MWdwaXV3Mnhta3p1aA==" id="ftIgH" target="_blank">@the_dilzan_resort</a></p>
+      </div>
+      <div class="ft-col">
+        <h4>Quick Links</h4>
+        <ul class="ft-links">
+          <li><a href="#home"><i class="fas fa-chevron-right"></i> Home</a></li>
+          <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
+          <li><a href="#owner"><i class="fas fa-chevron-right"></i> Our Owner</a></li>
+          <li><a href="#rooms"><i class="fas fa-chevron-right"></i> Rooms</a></li>
+          <li><a href="#amenities"><i class="fas fa-chevron-right"></i> Amenities</a></li>
+          <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
+          <li><a href="#contact"><i class="fas fa-chevron-right"></i> Book Now</a></li>
+          <li><a href="#" onclick="openAdmin(event)"><i class="fas fa-user-shield"></i> Admin</a></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Resort Info</h4>
+        <ul class="ft-info">
+          <li><i class="fas fa-map-marker-alt"></i><span id="ftAddr">Alibaug, Raigad, Maharashtra</span></li>
+          <li><i class="fas fa-phone-alt"></i><span>+91 77159 66111</span></li>
+          <li><i class="fas fa-envelope"></i><span id="ftEmail">info@dillzanresort.com</span></li>
+          <li><i class="fas fa-clock"></i><span>Check-in 12PM · Out 11AM</span></li>
+          <li><i class="fas fa-ship"></i><span>1 Min from Mandwa Jetty</span></li>
+        </ul>
+      </div>
+      <div class="ft-col">
+        <h4>Our Rooms</h4>
+        <ul class="ft-links">
+          <li><a href="#rooms"><i class="fas fa-chevron-right"></i> Deluxe Room ×5</a></li>
+          <li><a href="#rooms"><i class="fas fa-chevron-right"></i> Premium Room ×4</a></li>
+          <li><a href="#rooms"><i class="fas fa-chevron-right"></i> Triple Room ×2</a></li>
+          <li><a href="#rooms"><i class="fas fa-chevron-right"></i> Family Room ×1</a></li>
+          <li><a href="#rooms"><i class="fas fa-chevron-right"></i> Dormitory ×2</a></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <div class="container fbot">
+      <p>© 2025 The Dillzan Resort, Alibaug. All rights reserved.</p>
+      <button class="admin-btn" onclick="openAdmin(event)"><i class="fas fa-user-shield"></i> Admin</button>
+    </div>
+  </div>
+</footer>
+
+<!-- FLOATING WHATSAPP -->
+<a href="https://wa.me/917715966111" id="floatWa" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
+<button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
+
+<!-- ADMIN PANEL -->
+<div class="adm-overlay" id="admOv" onclick="closeAdmin()"></div>
+<div class="adm-panel" id="admPanel">
+  <div class="adm-head">
+    <div class="adm-title"><i class="fas fa-user-shield"></i> Owner Admin Panel</div>
+    <button class="adm-x" onclick="closeAdmin()"><i class="fas fa-times"></i></button>
+  </div>
+  <div class="adm-login" id="admLogin">
+    <div class="adm-lock"><i class="fas fa-lock"></i></div>
+    <h3>Secure Login</h3>
+    <p>Enter admin password</p>
+    <div class="fg" style="width:100%;max-width:280px;text-align:left"><label>Password</label><input type="password" id="admPass" placeholder="Password" onkeypress="if(event.key==='Enter')doLogin()"/></div>
+    <button class="btn-gold" style="width:280px;margin-top:.5rem" onclick="doLogin()">Login</button>
+    <p class="adm-hint">Default: <strong>dillzan2025</strong></p>
+  </div>
+  <div class="adm-dash" id="admDash" style="display:none">
+    <div class="adm-tabs">
+      <button class="atab active" data-t="general">General</button>
+      <button class="atab" data-t="gallery">Gallery</button>
+      <button class="atab" data-t="amenities">Amenities</button>
+      <button class="atab" data-t="reviews">Reviews</button>
+      <button class="atab" data-t="contact">Contact</button>
+      <button class="atab" data-t="social">Social</button>
+      <button class="atab" data-t="password">Password</button>
+    </div>
+    <div class="atab-c active" id="t-general">
+      <h4>General Settings</h4>
+      <div class="fg"><label>Owner Message (Quote)</label><textarea id="aOwnerMsg" rows="4" placeholder="Welcome message from owner..."></textarea></div>
+      <div class="fg"><label>Owner Description</label><textarea id="aOwnerDesc" rows="4" placeholder="Owner bio..."></textarea></div>
+      <div class="fg"><label>Upload Owner Photo</label><input type="file" id="aOwnerPhoto" accept="image/*" onchange="updateOwnerPhoto(this)"/></div>
+      <div class="fg"><label>Deluxe Room Availability</label><select id="aDeluxe"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
+      <div class="fg"><label>Premium Room Availability</label><select id="aPremium"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
+      <div class="fg"><label>Triple Room Availability</label><select id="aTriple"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
+      <div class="fg"><label>Family Room Availability</label><select id="aFamily"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
+      <div class="fg"><label>Dormitory Availability</label><select id="aDorm"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
+      <button class="btn-gold" onclick="saveGeneral()">Save</button>
+    </div>
+    <div class="atab-c" id="t-gallery">
+      <h4>Manage Gallery</h4>
+      <div id="galAdmList"></div>
+      <div class="adm-add">
+        <h5><i class="fas fa-plus-circle"></i> Add Image</h5>
+        <div class="fg"><label>Caption</label><input type="text" id="nGCap" placeholder="e.g. Pool View"/></div>
+        <div class="fg"><label>Category</label><select id="nGCat"><option value="resort">Resort</option><option value="rooms">Rooms</option><option value="food">Food</option></select></div>
+        <div class="fg"><label>Wide? (spans 2 cols)</label><select id="nGWide"><option value="false">No</option><option value="true">Yes</option></select></div>
+        <div class="fg"><label>Upload Image</label><input type="file" id="nGFile" accept="image/*" onchange="handleGalUpload(this)"/></div>
+        <button class="btn-gold" onclick="addGalItem()">Add</button>
+      </div>
+    </div>
+    <div class="atab-c" id="t-amenities">
+      <h4>Manage Amenities</h4>
+      <div id="amenAdmList"></div>
+      <div class="adm-add">
+        <h5><i class="fas fa-plus-circle"></i> Add Amenity</h5>
+        <div class="fg"><label>Name</label><input type="text" id="nAName" placeholder="e.g. Volleyball Court"/></div>
+        <div class="fg"><label>Icon (FA class)</label><input type="text" id="nAIcon" placeholder="fa-volleyball-ball"/></div>
+        <div class="fg"><label>Description</label><input type="text" id="nADesc" placeholder="Short description"/></div>
+        <button class="btn-gold" onclick="addAmen()">Add</button>
+      </div>
+    </div>
+    <div class="atab-c" id="t-reviews">
+      <h4>Manage Reviews</h4>
+      <div id="revAdmList"></div>
+      <div class="adm-add">
+        <h5><i class="fas fa-plus-circle"></i> Add Review</h5>
+        <div class="fg"><label>Guest Name</label><input type="text" id="nRN"/></div>
+        <div class="fg"><label>City</label><input type="text" id="nRC"/></div>
+        <div class="fg"><label>Rating (1-5)</label><input type="number" id="nRR" min="1" max="5" placeholder="5"/></div>
+        <div class="fg"><label>Date</label><input type="text" id="nRD" placeholder="December 2024"/></div>
+        <div class="fg"><label>Review Text</label><textarea id="nRT" rows="3"></textarea></div>
+        <button class="btn-gold" onclick="addRev()">Add</button>
+      </div>
+    </div>
+    <div class="atab-c" id="t-contact">
+      <h4>Contact Info</h4>
+      <div class="fg"><label>Email</label><input type="email" id="aEmail"/></div>
+      <div class="fg"><label>Address</label><textarea id="aAddr" rows="2"></textarea></div>
+      <div class="fg"><label>WhatsApp (with country code)</label><input type="text" id="aWA" placeholder="917715966111"/></div>
+      <button class="btn-gold" onclick="saveContact()">Save</button>
+    </div>
+    <div class="atab-c" id="t-social">
+      <h4>Social Links</h4>
+      <div class="fg"><label>WhatsApp Number</label><input type="text" id="sWA" placeholder="917715966111"/></div>
+      <div class="fg"><label>Instagram URL</label><input type="url" id="sIG"/></div>
+      <div class="fg"><label>Instagram Handle</label><input type="text" id="sIGH" placeholder="@the_dilzan_resort"/></div>
+      <div class="fg"><label>Facebook URL</label><input type="url" id="sFB"/></div>
+      <button class="btn-gold" onclick="saveSocial()">Save</button>
+    </div>
+    <div class="atab-c" id="t-password">
+      <h4>Change Password</h4>
+      <div class="fg"><label>Current Password</label><input type="password" id="pOld"/></div>
+      <div class="fg"><label>New Password</label><input type="password" id="pNew"/></div>
+      <div class="fg"><label>Confirm Password</label><input type="password" id="pCon"/></div>
+      <button class="btn-gold" onclick="changePass()">Update</button>
+    </div>
+    <div class="adm-msg" id="admMsg"></div>
+  </div>
+</div>
+
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script src="script.js"></script>
+</body>
+</html>

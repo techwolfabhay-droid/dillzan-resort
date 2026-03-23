@@ -27,7 +27,7 @@ const DEF = {
     {id:4,name:'Kavya Joshi',city:'Thane',rating:5,date:'September 2024',text:'Peaceful, beautiful, luxurious. Beach is literally a one-minute walk. The bonfire party was the highlight of our trip. Love this place!'},
   ],
   gallery: [
-    {id:1,src:'images/about-pool.avif',cap:'Swimming Pool',cat:'resort',wide:true},
+    {id:1,src:'images/about-pool1.jpeg',cap:'Swimming Pool',cat:'resort',wide:true},
     {id:2,src:'images/reviews-bg.jpeg',cap:'Resort Night View',cat:'resort',wide:false},
     {id:3,src:'images/room-deluxe.jpeg',cap:'Deluxe Room',cat:'rooms',wide:false},
     {id:4,src:'images/room-triple.jpeg',cap:'Triple Room',cat:'rooms',wide:false},

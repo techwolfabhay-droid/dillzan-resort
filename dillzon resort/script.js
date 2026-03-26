@@ -3,7 +3,7 @@
 /* ─── DATA ─── */
 const DEF = {
   password: 'dillzan2025',
-  contact: { email:'info@dillzanresort.com', address:'Alibaug, Raigad · 1 min from Mandwa Jetty', whatsapp:'917715966111' },
+  contact: { email:'info@dillzanresort.com', address:'Near Ranavali Farm House And Resort, At: Rahatale, Post: Dhokawade, Ta:, Mandwa Jetty Rd, Rahatale, Alibag, Maharashtra 402208', whatsapp:'917715966111' },
   social: { whatsapp:'917715966111', instagram:'https://www.instagram.com/the_dilzan_resort?igsh=MWdwaXV3Mnhta3p1aA==', igHandle:'@the_dilzan_resort', facebook:'https://www.facebook.com/dillzanresort' },
   availability: { deluxe:'Subject to Availability', premium:'Subject to Availability', triple:'Subject to Availability', family:'Subject to Availability', dorm:'Subject to Availability' },
   amenities: [

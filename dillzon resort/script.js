@@ -3,7 +3,7 @@
 /* ─── DATA ─── */
 const DEF = {
   password: 'dillzan2025',
-  contact: { email:'info@dillzanresort.com', address:'Near Ranavali Farm House And Resort, At: Rahatale, Post: Dhokawade, Ta:, Mandwa Jetty Rd, Rahatale, Alibag, Maharashtra 402208', whatsapp:'917715966111' },
+  contact: { email:'info@dillzanresort.com', address:'Alibaug, Raigad · 1 min from Mandwa Jetty', whatsapp:'917715966111' },
   social: { whatsapp:'917715966111', instagram:'https://www.instagram.com/the_dilzan_resort?igsh=MWdwaXV3Mnhta3p1aA==', igHandle:'@the_dilzan_resort', facebook:'https://www.facebook.com/dillzanresort' },
   availability: { deluxe:'Subject to Availability', premium:'Subject to Availability', triple:'Subject to Availability', family:'Subject to Availability', dorm:'Subject to Availability' },
   amenities: [
@@ -12,13 +12,11 @@ const DEF = {
     {id:3,icon:'fa-chess-board',name:'Carrom Board',desc:'Classic indoor fun for families'},
     {id:4,icon:'fa-crosshairs',name:'Dart Board',desc:'Dart games and indoor activities'},
     {id:5,icon:'fa-gamepad',name:'Indoor Game Zone',desc:'Multiple indoor games under one roof'},
-    {id:6,icon:'fa-utensils',name:'Veg and Non-Veg Food',desc:'Authentic food with love & tradition'},
+    {id:6,icon:'fa-utensils',name:'Parsi Cuisine',desc:'Authentic food with love & tradition'},
     {id:7,icon:'fa-leaf',name:'Konkan Food',desc:'Traditional Alibaug Konkan cooking'},
     {id:8,icon:'fa-bed',name:'15 Clean Rooms',desc:'Comfortable rooms for all group sizes'},
     {id:9,icon:'fa-ship',name:'Near Mandwa Jetty',desc:'1 min by car — closest to M2M RoRo'},
     {id:10,icon:'fa-tree',name:'Peaceful Ambience',desc:'Calm green surroundings, away from city'},
-    {id:11,icon:'fa-solid fa-snowflake',name:'AC rooms',desc:'with AC rooms'},
-    {id:12,icon:'fa-solid fa-music',name:'Live Music',desc:'Calm and enjoying Music'},
   ],
   reviews: [
     {id:1,name:'Priya Sharma',city:'Mumbai',rating:5,date:'December 2024',text:'Absolutely magical stay! The location is breathtaking and the staff made us feel like royalty. The food was outstanding — especially the seafood!'},
@@ -27,7 +25,7 @@ const DEF = {
     {id:4,name:'Kavya Joshi',city:'Thane',rating:5,date:'September 2024',text:'Peaceful, beautiful, luxurious. Beach is literally a one-minute walk. The bonfire party was the highlight of our trip. Love this place!'},
   ],
   gallery: [
-    {id:1,src:'images/about-pool1.jpeg',cap:'Swimming Pool',cat:'resort',wide:true},
+    {id:1,src:'images/about-pool.jpeg',cap:'Swimming Pool',cat:'resort',wide:true},
     {id:2,src:'images/reviews-bg.jpeg',cap:'Resort Night View',cat:'resort',wide:false},
     {id:3,src:'images/room-deluxe.jpeg',cap:'Deluxe Room',cat:'rooms',wide:false},
     {id:4,src:'images/room-triple.jpeg',cap:'Triple Room',cat:'rooms',wide:false},
@@ -38,8 +36,8 @@ const DEF = {
     {id:9,src:'images/gallery-3.jpeg',cap:'Fish Fry',cat:'food',wide:false},
     {id:10,src:'images/gallery-1.jpeg',cap:'Chicken Special',cat:'food',wide:false},
     {id:11,src:'images/gallery-5.jpeg',cap:'Masala Pap',cat:'food',wide:false},
-    {id:12,src:'images/gallery-7.jpeg',cap:'Crispy Fri  es',cat:'food',wide:true},
-    {id:13,src:'images/gallery-8.jpeg',cap:'Crispy Fries  e',cat:'food',wide:true},
+    {id:12,src:'images/gallery-7.jpeg',cap:'Crispy Fries',cat:'food',wide:true},
+    {id:13,src:'images/gallery-8.jpeg',cap:'Crispy Fries',cat:'food',wide:true},
     {id:14,src:'images/gallery-9.jpeg',cap:'Crispy Fri',cat:'food',wide:true},
     {id:15,src:'images/gallery-12.jpeg',cap:'Crispyes',cat:'food',wide:true},
   ]
@@ -150,26 +148,134 @@ function applyContact(){
   ['ftEmail'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=c.email;});
 }
 
-/* ─── ENQUIRY ─── */
-function sendEnq(){
-  const n=document.getElementById('bName').value.trim(),p=document.getElementById('bPhone').value.trim();
-  if(!n||!p){alert('Please enter name and phone.');return;}
-  const wa=D.social.whatsapp||'917715966111';
-  const ci=document.getElementById('bIn').value,co=document.getElementById('bOut').value;
-  const rm=document.getElementById('bRoom').value,gu=document.getElementById('bGuests').value;
-  const ms=document.getElementById('bMsg').value.trim();
-  const txt=`Hello! Booking enquiry at *The Dillzan Resort, Alibaug*\n\n👤 *Name:* ${n}\n📱 *Phone:* ${p}${ci?'\n📅 *Check-In:* '+ci:''}${co?'\n📅 *Check-Out:* '+co:''}${rm?'\n🛏 *Room:* '+rm:''}\n👥 *Guests:* ${gu}${ms?'\n📝 *Requests:* '+ms:''}\n\nThank you! 🙏`;
-  window.open(`https://wa.me/${wa}?text=${encodeURIComponent(txt)}`,'_blank');
-}
-window.sendEnq=sendEnq;
+/* ══════════════════════════════════════════════
+   ROOM CONFIG — Fixed occupancy, ₹3,999/person
+══════════════════════════════════════════════ */
+const RATE = 3999;
 
-/* ─── BOOKING DATE ─── */
-function setupDates(){
-  const today=new Date().toISOString().split('T')[0];
-  const bi=document.getElementById('bIn'),bo=document.getElementById('bOut');
-  if(bi){bi.min=today;bi.addEventListener('change',()=>{if(bo)bo.min=bi.value;});}
-  if(bo)bo.min=today;
+const ROOM_CONFIG = {
+  'Deluxe Room' : { min:1, max:2, label:'2 Persons only'   },
+  'Premium Room': { min:1, max:3, label:'3 Persons only'   },
+  'Triple-bed Room' : { min:3, max:3, label:'3 Persons only'   },
+  'Family Room' : { min:2, max:4, label:'4 Persons only'   },
+  'Dormitory'   : { min:1, max:10,label:'1–10 Persons'     },
+};
+
+/* ─── CALCULATE NIGHTS ─── */
+function calcNights(ci, co) {
+  if (!ci || !co) return 1;
+  const diff = new Date(co) - new Date(ci);
+  const nights = Math.round(diff / (1000 * 60 * 60 * 24));
+  return nights > 0 ? nights : 1;
 }
+
+/* ─── UPDATE GUESTS DROPDOWN based on room selected ─── */
+function updateGuestsDropdown() {
+  const rm  = document.getElementById('bRoom').value;
+  const gu  = document.getElementById('bGuests');
+  const cfg = ROOM_CONFIG[rm];
+  if (!gu) return;
+
+  if (!cfg) {
+    gu.innerHTML = '';
+    for (let i = 1; i <= 10; i++) {
+      const o = document.createElement('option');
+      o.value = i; o.textContent = i + ' Person' + (i > 1 ? 's' : '');
+      gu.appendChild(o);
+    }
+    gu.disabled = false;
+    return;
+  }
+
+  gu.innerHTML = '';
+  if (cfg.min === cfg.max) {
+    const o = document.createElement('option');
+    o.value = cfg.min;
+    o.textContent = cfg.min + ' Person' + (cfg.min > 1 ? 's' : '') + ' (Fixed)';
+    gu.appendChild(o);
+    gu.disabled = true;
+  } else {
+    for (let i = cfg.min; i <= cfg.max; i++) {
+      const o = document.createElement('option');
+      o.value = i; o.textContent = i + ' Person' + (i > 1 ? 's' : '');
+      gu.appendChild(o);
+    }
+    gu.disabled = false;
+  }
+
+  updatePricePreview();
+}
+
+/* ─── LIVE PRICE PREVIEW ─── */
+function updatePricePreview() {
+  const ci   = document.getElementById('bIn').value;
+  const co   = document.getElementById('bOut').value;
+  const rm   = document.getElementById('bRoom').value;
+  const gu   = document.getElementById('bGuests');
+  const prev = document.getElementById('pricePreview');
+  if (!prev) return;
+  if (!rm || !ci || !co) { prev.style.display = 'none'; return; }
+
+  const nights  = calcNights(ci, co);
+  const persons = parseInt(gu ? gu.value : 1) || 1;
+  const total   = RATE * persons * nights;
+
+  document.getElementById('previewAmt').textContent = '₹' + total.toLocaleString('en-IN');
+  document.getElementById('previewBreak').textContent =
+    `${rm}  ·  ${persons} person${persons > 1 ? 's' : ''}  ·  ${nights} night${nights > 1 ? 's' : ''}  ·  ₹${RATE.toLocaleString('en-IN')}/person/night`;
+  prev.style.display = 'block';
+}
+
+/* ─── SETUP DATES + LISTENERS ─── */
+function setupDates(){
+  const today = new Date().toISOString().split('T')[0];
+  const bi = document.getElementById('bIn');
+  const bo = document.getElementById('bOut');
+  const rm = document.getElementById('bRoom');
+  const gu = document.getElementById('bGuests');
+
+  if(bi){ bi.min = today; bi.addEventListener('change', ()=>{ if(bo){ bo.min = bi.value; } updatePricePreview(); }); }
+  if(bo){ bo.min = today; bo.addEventListener('change', updatePricePreview); }
+  if(rm){ rm.addEventListener('change', ()=>{ updateGuestsDropdown(); updatePricePreview(); }); }
+  if(gu){ gu.addEventListener('change', updatePricePreview); }
+}
+
+/* ─── WHATSAPP ENQUIRY ─── */
+function sendEnq(){
+  const n  = document.getElementById('bName').value.trim();
+  const p  = document.getElementById('bPhone').value.trim();
+  if(!n||!p){ alert('Please enter name and phone.'); return; }
+
+  const wa = D.social.whatsapp || '917715966111';
+  const ci = document.getElementById('bIn').value;
+  const co = document.getElementById('bOut').value;
+  const rm = document.getElementById('bRoom').value;
+  const gu = document.getElementById('bGuests');
+  const ms = document.getElementById('bMsg').value.trim();
+
+  const persons = parseInt(gu ? gu.value : 1) || 1;
+  const nights  = calcNights(ci, co);
+  const total   = RATE * persons * nights;
+
+  const amtLine = (rm && ci && co)
+    ? `\n💰 *Estimated Amount:* ₹${total.toLocaleString('en-IN')}\n   _(${persons} person${persons>1?'s':''} × ${nights} night${nights>1?'s':''} × ₹${RATE.toLocaleString('en-IN')}/person/night)_`
+    : '';
+
+  const txt =
+    `Hello! Booking enquiry at *The Dillzan Resort, Alibaug* 🌴\n\n` +
+    `👤 *Name:* ${n}\n` +
+    `📱 *Phone:* ${p}` +
+    (ci ? `\n📅 *Check-In:* ${ci}` : '') +
+    (co ? `\n📅 *Check-Out:* ${co}` : '') +
+    (rm ? `\n🛏 *Room:* ${rm}` : '') +
+    (gu ? `\n👥 *Guests:* ${persons} person${persons>1?'s':''}` : '') +
+    amtLine +
+    (ms ? `\n📝 *Special Requests:* ${ms}` : '') +
+    `\n\nThank you! 🙏`;
+
+  window.open(`https://wa.me/${wa}?text=${encodeURIComponent(txt)}`, '_blank');
+}
+window.sendEnq = sendEnq;
 
 /* ─── ADMIN ─── */
 function openAdmin(e){if(e)e.preventDefault();document.getElementById('admPanel').classList.add('open');document.getElementById('admOv').classList.add('open');document.body.style.overflow='hidden';document.getElementById('admLogin').style.display='';document.getElementById('admDash').style.display='none';document.getElementById('admPass').value='';}
@@ -190,11 +296,11 @@ function fillAdm(){
 }
 function aMsg(t,c){const e=document.getElementById('admMsg');e.textContent=(c==='ok'?'✓ ':'✗ ')+t;e.className='adm-msg '+c;setTimeout(()=>{e.textContent='';e.className='adm-msg';},3000);}
 function saveGeneral(){
-  const om = document.getElementById('aOwnerMsg');
-  const od = document.getElementById('aOwnerDesc');
-  if (om && om.value.trim()) D.ownerMessage = om.value.trim();
-  if (od && od.value.trim()) D.ownerDesc = od.value.trim();
-  save(); applyOwnerData(); aMsg('Saved!', 'ok');
+  const om=document.getElementById('aOwnerMsg');
+  const od=document.getElementById('aOwnerDesc');
+  if(om&&om.value.trim())D.ownerMessage=om.value.trim();
+  if(od&&od.value.trim())D.ownerDesc=od.value.trim();
+  save();applyOwnerData();aMsg('Saved!','ok');
 }
 window.saveGeneral=saveGeneral;
 function saveContact(){D.contact={email:document.getElementById('aEmail').value.trim()||D.contact.email,address:document.getElementById('aAddr').value.trim()||D.contact.address,whatsapp:document.getElementById('aWA').value.trim()||D.contact.whatsapp};save();applyContact();aMsg('Contact saved!','ok');}
@@ -203,17 +309,20 @@ function saveSocial(){D.social={whatsapp:document.getElementById('sWA').value.tr
 window.saveSocial=saveSocial;
 function changePass(){const o=document.getElementById('pOld').value,n=document.getElementById('pNew').value,c=document.getElementById('pCon').value;if(o!==D.password){aMsg('Wrong current password.','err');return;}if(n.length<6){aMsg('Min 6 chars.','err');return;}if(n!==c){aMsg('Passwords do not match.','err');return;}D.password=n;save();aMsg('Password updated!','ok');['pOld','pNew','pCon'].forEach(id=>document.getElementById(id).value='');}
 window.changePass=changePass;
-// Amenities admin
+
+/* ─── AMENITIES ADMIN ─── */
 function renderAdmAmen(){document.getElementById('amenAdmList').innerHTML=D.amenities.map(a=>`<div class="adm-row"><div class="adm-row-info"><h5><i class="fas ${a.icon}" style="color:var(--gold);margin-right:.3rem;"></i>${a.name}</h5><p>${a.desc}</p></div><button class="btn-del" onclick="delAmen(${a.id})"><i class="fas fa-trash"></i></button></div>`).join('');}
 function addAmen(){const n=document.getElementById('nAName').value.trim(),i=document.getElementById('nAIcon').value.trim(),d=document.getElementById('nADesc').value.trim();if(!n){aMsg('Enter name.','err');return;}D.amenities.push({id:Date.now(),name:n,icon:i||'fa-check',desc:d});save();renderAmen();renderAdmAmen();aMsg('Added!','ok');['nAName','nAIcon','nADesc'].forEach(id=>document.getElementById(id).value='');}
 function delAmen(id){if(!confirm('Delete?'))return;D.amenities=D.amenities.filter(a=>a.id!==id);save();renderAmen();renderAdmAmen();aMsg('Deleted.','ok');}
 window.addAmen=addAmen;window.delAmen=delAmen;
-// Reviews admin
+
+/* ─── REVIEWS ADMIN ─── */
 function renderAdmRevs(){document.getElementById('revAdmList').innerHTML=D.reviews.map(r=>`<div class="adm-row"><div class="adm-row-info"><h5>${r.name} ★${r.rating} — ${r.city}</h5><p>${r.text.substring(0,60)}...</p></div><button class="btn-del" onclick="delRev(${r.id})"><i class="fas fa-trash"></i></button></div>`).join('');}
 function addRev(){const n=document.getElementById('nRN').value.trim(),c=document.getElementById('nRC').value.trim(),r=Math.min(5,Math.max(1,+document.getElementById('nRR').value||5)),d=document.getElementById('nRD').value.trim(),t=document.getElementById('nRT').value.trim();if(!n||!t){aMsg('Enter name & review.','err');return;}D.reviews.unshift({id:Date.now(),name:n,city:c,rating:r,date:d,text:t});save();renderRevs();renderAdmRevs();aMsg('Review added!','ok');['nRN','nRC','nRR','nRD','nRT'].forEach(id=>document.getElementById(id).value='');}
 function delRev(id){if(!confirm('Delete?'))return;D.reviews=D.reviews.filter(r=>r.id!==id);save();renderRevs();renderAdmRevs();aMsg('Deleted.','ok');}
 window.addRev=addRev;window.delRev=delRev;
-// Gallery admin
+
+/* ─── GALLERY ADMIN ─── */
 function renderAdmGal(){document.getElementById('galAdmList').innerHTML=D.gallery.map(g=>`<div class="adm-row"><div class="adm-row-info"><h5>${g.cap}</h5><p>${g.cat}</p></div><button class="btn-del" onclick="delGal(${g.id})"><i class="fas fa-trash"></i></button></div>`).join('');}
 let pendingGalSrc='';
 function handleGalUpload(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{pendingGalSrc=e.target.result;aMsg('Image ready — fill caption & click Add.','ok');};r.readAsDataURL(file);}
@@ -221,36 +330,14 @@ function addGalItem(){const cap=document.getElementById('nGCap').value.trim(),ca
 function delGal(id){if(!confirm('Remove?'))return;D.gallery=D.gallery.filter(g=>g.id!==id);save();renderGal('all');renderAdmGal();aMsg('Removed.','ok');}
 window.addGalItem=addGalItem;window.delGal=delGal;window.handleGalUpload=handleGalUpload;
 
+/* ─── OWNER PHOTO ─── */
+function updateOwnerPhoto(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{const img=document.getElementById('ownerPhoto');if(img)img.src=e.target.result;D.ownerPhoto=e.target.result;save();aMsg('Owner photo updated!','ok');};r.readAsDataURL(file);}
+window.updateOwnerPhoto=updateOwnerPhoto;
 
-// ── OWNER PHOTO UPDATE ──
-function updateOwnerPhoto(input) {
-  const file = input.files[0];
-  if (!file) return;
-  const r = new FileReader();
-  r.onload = e => {
-    const img = document.getElementById('ownerPhoto');
-    if (img) img.src = e.target.result;
-    D.ownerPhoto = e.target.result;
-    save();
-    aMsg('Owner photo updated!', 'ok');
-  };
-  r.readAsDataURL(file);
-}
-window.updateOwnerPhoto = updateOwnerPhoto;
-
-function applyOwnerData() {
-  if (D.ownerPhoto) {
-    const img = document.getElementById('ownerPhoto');
-    if (img) img.src = D.ownerPhoto;
-  }
-  if (D.ownerMessage) {
-    const el = document.getElementById('ownerMessage');
-    if (el) el.textContent = D.ownerMessage;
-  }
-  if (D.ownerDesc) {
-    const el = document.getElementById('ownerDesc');
-    if (el) el.textContent = D.ownerDesc;
-  }
+function applyOwnerData(){
+  if(D.ownerPhoto){const img=document.getElementById('ownerPhoto');if(img)img.src=D.ownerPhoto;}
+  if(D.ownerMessage){const el=document.getElementById('ownerMessage');if(el)el.textContent=D.ownerMessage;}
+  if(D.ownerDesc){const el=document.getElementById('ownerDesc');if(el)el.textContent=D.ownerDesc;}
 }
 
 /* ─── INIT ─── */
@@ -261,5 +348,7 @@ document.addEventListener('DOMContentLoaded',()=>{
   applyContact();
   applyOwnerData();
   setupDates();
+  updateGuestsDropdown();
   observeReveal();
 });
+

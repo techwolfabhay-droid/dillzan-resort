@@ -36,7 +36,7 @@ const DEF = {
     {id:107,cat:'seafood',name:'Surmai Fry',desc:'King fish fry with traditional coastal masala',veg:false},
     {id:108,cat:'seafood',name:'Bangada Fry',desc:'Mackerel fish fry with tangy Konkan marination',veg:false},
     {id:109,cat:'seafood',name:'Prawns Golden Fry',desc:'Crispy golden fried prawns with spicy coating',veg:false},
-    {id:110,cat:'seafood',name:'BBQ Crabs',desc:'Fresh Alibaug crabs grilled to perfection — price as per size',veg:false,aps:true},
+    {id:110,cat:'seafood',name:'BBQ Crabs',desc:'Fresh Alibaug crabs grilled to perfection',veg:false},
     /* ── CHICKEN & EGGS ── */
     {id:111,cat:'chicken',name:'Honey Chilly Chicken',desc:'Crispy chicken tossed in sweet & spicy honey chilly sauce',veg:false},
     {id:112,cat:'chicken',name:'Honey Chilly Prawns',desc:'Juicy prawns in sticky honey chilly glaze',veg:false},
@@ -84,7 +84,7 @@ function doPageTransition(cb) {
 ══════════════════════════════ */
 let heroIdx = 0;
 let heroTimer = null;
-const SLIDE_INTERVAL = 2500; // ✅ 2.5 sec — faster
+const SLIDE_INTERVAL = 2500;
 
 function initHeroSlider() {
   const slides = document.querySelectorAll('.hero-slide');
@@ -252,14 +252,10 @@ const MENU_CATS = {
 };
 
 function menuItemHTML(item) {
-  const priceStr = item.aps
-    ? '<span class="mi-aps">As Per Size</span>';
   return `<div class="menu-item">
     <div class="mi-top">
       <span class="mi-dot ${item.veg ? 'veg' : 'nveg'}"></span>
       <span class="mi-name">${item.name}</span>
-      <span class="mi-leaders"></span>
-      
     </div>
     ${item.desc ? `<p class="mi-desc">${item.desc}</p>` : ''}
   </div>`;
@@ -314,7 +310,7 @@ function renderAdmMenu() {
   el.innerHTML = (D.menu || []).map(m => `
     <div class="adm-row">
       <div class="adm-row-info">
-        <h5><span class="mi-dot ${m.veg ? 'veg' : 'nveg'}" style="display:inline-block;margin-right:.35rem;vertical-align:middle"></span>${m.name} — ${m.aps ? 'As Per Size' : '&#8377;'+m.price}</h5>
+        <h5><span class="mi-dot ${m.veg ? 'veg' : 'nveg'}" style="display:inline-block;margin-right:.35rem;vertical-align:middle"></span>${m.name}</h5>
         <p>${MENU_CATS[m.cat] || m.cat} &nbsp;·&nbsp; ${m.desc}</p>
       </div>
       <button class="btn-del" onclick="delMenuItem(${m.id})"><i class="fas fa-trash"></i></button>
@@ -322,14 +318,13 @@ function renderAdmMenu() {
 }
 
 function addMenuItem() {
-  const name  = document.getElementById('nMName').value.trim();
-  const cat   = document.getElementById('nMCat').value;
-  const price = parseInt(document.getElementById('nMPrice').value) || 0;
-  const desc  = document.getElementById('nMDesc').value.trim();
-  const veg   = document.getElementById('nMVeg').value === 'true';
+  const name = document.getElementById('nMName').value.trim();
+  const cat  = document.getElementById('nMCat').value;
+  const desc = document.getElementById('nMDesc').value.trim();
+  const veg  = document.getElementById('nMVeg').value === 'true';
   if (!name) { aMsg('Enter name.', 'err'); return; }
   if (!D.menu) D.menu = [];
-  D.menu.push({ id: Date.now(), cat, name, desc, price, veg });
+  D.menu.push({ id: Date.now(), cat, name, desc, veg });
   save();
   renderMenu('all');
   document.querySelectorAll('.mtab').forEach(t => {
@@ -338,7 +333,7 @@ function addMenuItem() {
   });
   renderAdmMenu();
   aMsg('Menu item added!', 'ok');
-  ['nMName', 'nMPrice', 'nMDesc'].forEach(id => document.getElementById(id).value = '');
+  ['nMName', 'nMDesc'].forEach(id => document.getElementById(id).value = '');
 }
 
 function delMenuItem(id) {
@@ -556,5 +551,4 @@ document.addEventListener('DOMContentLoaded', () => {
   observeReveal();
   setTimeout(() => document.body.classList.add('loaded'), 100);
 });
-
 

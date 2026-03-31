@@ -45,6 +45,10 @@ p{line-height:1.75;color:var(--lgrey);}
 /* LOADER */
 .loader{position:fixed;inset:0;z-index:9999;background:var(--dark);display:flex;flex-direction:column;align-items:center;justify-content:center;gap:1.2rem;transition:opacity .5s ease,visibility .5s ease;}
 .loader.done{opacity:0;visibility:hidden;}
+.loader h2 {
+    font-style: italic;
+    font-weight: normal; /* bold nahi chahiye to yeh add karo */
+}
 .loader-logo{height:90px;width:90px;border-radius:50%;object-fit:cover;background:var(--dark3);}
 .loader-bar{width:180px;height:2px;background:rgba(139,101,8,.2);border-radius:2px;overflow:hidden;}
 .loader-fill{height:100%;background:var(--gold);animation:lf 2s ease forwards;}

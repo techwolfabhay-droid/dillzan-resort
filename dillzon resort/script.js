@@ -50,8 +50,8 @@ const DEF = {
     {id:119,cat:'beverages',name:'Ice Milk',desc:'Chilled cold milk — simple and refreshing',price:50,veg:true},
   ],
   gallery: [
-    {id:1,src:'images/about-pool.jpeg',cap:'Swimming Pool',cat:'resort',wide:true},
-    {id:2,src:'images/reviews-bg.jpeg',cap:'Resort Night View',cat:'resort',wide:false},
+    {id:1,src:'images/hero1.jpeg',cap:'Swimming Pool',cat:'resort',wide:true},
+    {id:2,src:'images/hero2.jpeg',cap:'Resort Night View',cat:'resort',wide:false},
     {id:3,src:'images/room-deluxe.jpeg',cap:'Deluxe Room',cat:'rooms',wide:false},
     {id:4,src:'images/room-triple.jpeg',cap:'Triple Room',cat:'rooms',wide:false},
     {id:5,src:'images/room-premium.jpeg',cap:'Premium Room',cat:'rooms',wide:false},

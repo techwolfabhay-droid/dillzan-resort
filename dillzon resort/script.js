@@ -36,7 +36,7 @@ const DEF = {
     {id:107,cat:'seafood',name:'Surmai Fry',desc:'King fish fry with traditional coastal masala',veg:false},
     {id:108,cat:'seafood',name:'Bangada Fry',desc:'Mackerel fish fry with tangy Konkan marination',veg:false},
     {id:109,cat:'seafood',name:'Prawns Golden Fry',desc:'Crispy golden fried prawns with spicy coating',veg:false},
-    {id:110,cat:'seafood',name:'BBQ Crabs',desc:'Fresh Alibaug crabs grilled to perfection — price as per size',price:0,veg:false,aps:true},
+    {id:110,cat:'seafood',name:'BBQ Crabs',desc:'Fresh Alibaug crabs grilled to perfection — price as per size',veg:false,aps:true},
     /* ── CHICKEN & EGGS ── */
     {id:111,cat:'chicken',name:'Honey Chilly Chicken',desc:'Crispy chicken tossed in sweet & spicy honey chilly sauce',veg:false},
     {id:112,cat:'chicken',name:'Honey Chilly Prawns',desc:'Juicy prawns in sticky honey chilly glaze',veg:false},

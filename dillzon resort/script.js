@@ -253,14 +253,13 @@ const MENU_CATS = {
 
 function menuItemHTML(item) {
   const priceStr = item.aps
-    ? '<span class="mi-aps">As Per Size</span>'
-    : `&#8377;${item.price}`;
+    ? '<span class="mi-aps">As Per Size</span>';
   return `<div class="menu-item">
     <div class="mi-top">
       <span class="mi-dot ${item.veg ? 'veg' : 'nveg'}"></span>
       <span class="mi-name">${item.name}</span>
       <span class="mi-leaders"></span>
-      <span class="mi-price">${priceStr}</span>
+      
     </div>
     ${item.desc ? `<p class="mi-desc">${item.desc}</p>` : ''}
   </div>`;

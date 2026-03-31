@@ -13,11 +13,14 @@
 </head>
 <body>
 
+<!-- PAGE TRANSITION OVERLAY -->
+<div class="page-transition" id="pageTransition"></div>
+
 <!-- LOADER -->
 <div class="loader" id="loader">
   <img class="loader-logo" src="images/logo.jpeg" alt="Dillzan"/>
   <div class="loader-bar"><div class="loader-fill"></div></div>
-  <h3><i>Welcome to Dillzan Resort</i></h3>
+  <h2><em>Welcome to The Dillzan Resort</em></h2>
   <p class="loader-txt">Preparing your paradise...</p>
 </div>
 
@@ -28,7 +31,63 @@
     <li><a href="#home" class="nav-link">Home</a></li>
     <li><a href="#about" class="nav-link">About</a></li>
     <li><a href="#owner" class="nav-link">Owner</a></li>
-    <li><a href="#rooms" class="nav-link">Rooms</a></li>
+    <!-- ROOMS WITH MEGA MENU -->
+    <li class="nav-mega-wrap">
+      <a href="#rooms" class="nav-link nav-mega-trigger">Rooms <i class="fas fa-chevron-down nav-arrow"></i></a>
+      <div class="mega-menu">
+        <div class="mega-inner">
+          <div class="mega-col">
+            <p class="mega-heading">Our Rooms</p>
+            <a href="#rooms" class="mega-item" data-room="Deluxe Room">
+              <div class="mega-item-img"><img src="images/room-deluxe.jpeg" alt="Deluxe"/></div>
+              <div class="mega-item-info">
+                <span class="mega-item-name">Deluxe Room</span>
+                <span class="mega-item-sub">2 Guests · ₹7,998/night</span>
+              </div>
+            </a>
+            <a href="#rooms" class="mega-item" data-room="Premium Room">
+              <div class="mega-item-img"><img src="images/room-premium.jpeg" alt="Premium"/></div>
+              <div class="mega-item-info">
+                <span class="mega-item-name">Premium Room</span>
+                <span class="mega-item-sub">2 Guests · ₹7,998/night</span>
+              </div>
+            </a>
+            <a href="#rooms" class="mega-item" data-room="Triple Room">
+              <div class="mega-item-img"><img src="images/room-triple.jpeg" alt="Triple"/></div>
+              <div class="mega-item-info">
+                <span class="mega-item-name">Triple Room</span>
+                <span class="mega-item-sub">3 Guests · ₹11,997/night</span>
+              </div>
+            </a>
+            <a href="#rooms" class="mega-item" data-room="Family Room">
+              <div class="mega-item-img"><img src="images/room-family.jpeg" alt="Family"/></div>
+              <div class="mega-item-info">
+                <span class="mega-item-name">Family Room</span>
+                <span class="mega-item-sub">4 Guests · ₹15,996/night</span>
+              </div>
+            </a>
+            <a href="#rooms" class="mega-item" data-room="Dormitory">
+              <div class="mega-item-img"><img src="images/room-dorm.jpeg" alt="Dorm"/></div>
+              <div class="mega-item-info">
+                <span class="mega-item-name">Dormitory</span>
+                <span class="mega-item-sub">1–10 Guests · ₹3,999/person</span>
+              </div>
+            </a>
+          </div>
+          <div class="mega-col mega-col-photos">
+            <p class="mega-heading">Resort Highlights</p>
+            <div class="mega-photos">
+              <div class="mega-photo zoom-img"><img src="images/about-pool.jpeg" alt="Pool"/><span>Swimming Pool</span></div>
+              <div class="mega-photo zoom-img"><img src="images/about.jpeg" alt="Resort"/><span>Resort View</span></div>
+              <div class="mega-photo zoom-img"><img src="images/gallery-6.jpeg" alt="Food"/><span>Parsi Cuisine</span></div>
+              <div class="mega-photo zoom-img"><img src="images/reviews-bg.jpeg" alt="Night"/><span>Night View</span></div>
+            </div>
+            <a href="#contact" class="mega-book-btn"><i class="fas fa-calendar-check"></i> Book Now — ₹3,999/person</a>
+          </div>
+        </div>
+      </div>
+    </li>
+    <li><a href="#menu" class="nav-link">Menu</a></li>
     <li><a href="#amenities" class="nav-link">Amenities</a></li>
     <li><a href="#gallery" class="nav-link">Gallery</a></li>
     <li><a href="#contact" class="nav-link">Contact</a></li>
@@ -44,7 +103,17 @@
     <li><a href="#home" class="mob-link">Home</a></li>
     <li><a href="#about" class="mob-link">About</a></li>
     <li><a href="#owner" class="mob-link">Owner</a></li>
-    <li><a href="#rooms" class="mob-link">Rooms</a></li>
+    <li class="mob-accordion">
+      <button class="mob-acc-btn">Rooms <i class="fas fa-chevron-down"></i></button>
+      <ul class="mob-acc-list">
+        <li><a href="#rooms" class="mob-link mob-sub">Deluxe Room — 2 Guests</a></li>
+        <li><a href="#rooms" class="mob-link mob-sub">Premium Room — 2 Guests</a></li>
+        <li><a href="#rooms" class="mob-link mob-sub">Triple Room — 3 Guests</a></li>
+        <li><a href="#rooms" class="mob-link mob-sub">Family Room — 4 Guests</a></li>
+        <li><a href="#rooms" class="mob-link mob-sub">Dormitory — 1-10 Guests</a></li>
+      </ul>
+    </li>
+    <li><a href="#menu" class="mob-link">Menu</a></li>
     <li><a href="#amenities" class="mob-link">Amenities</a></li>
     <li><a href="#gallery" class="mob-link">Gallery</a></li>
     <li><a href="#contact" class="mob-link">Contact</a></li>
@@ -52,15 +121,18 @@
   <a href="#contact" class="mob-book">Book Now</a>
 </div>
 
-<!-- HERO -->
+<!-- HERO WITH IMAGE SLIDER -->
 <section id="home" class="hero">
-  <img class="hero-img" src="images/hero-bg.jpeg" alt="The Dillzan Resort"/>
+  <div class="hero-slider" id="heroSlider">
+    <div class="hero-slide active"><img src="images/hero-bg.jpeg" alt="The Dillzan Resort"/></div>
+    <div class="hero-slide"><img src="images/about.jpeg" alt="Resort View"/></div>
+    <div class="hero-slide"><img src="images/about-pool.jpeg" alt="Swimming Pool"/></div>
+    <div class="hero-slide"><img src="images/reviews-bg.jpeg" alt="Resort Night"/></div>
+  </div>
   <div class="hero-overlay"></div>
+  <div class="hero-slider-dots" id="heroSliderDots"></div>
   <div class="hero-content">
-    <div class="hero-badges">
-      <span class="h-badge"><i class="fas fa-map-marker-alt"></i> Alibaug, Maharashtra</span>
-      <span class="h-badge"><i class="fas fa-ship"></i> 1 Min from Mandwa Jetty</span>
-    </div>
+    
     <p class="hero-eyebrow">Welcome to</p>
     <h1 class="hero-title">
       <span class="ht-the">The</span>
@@ -68,11 +140,6 @@
       <span class="ht-resort">Resort</span>
     </h1>
     <p class="hero-sub">Closest resort to Mandwa Jetty · Parsi &amp; Konkan Cuisine</p>
-    <div class="hero-price">
-      <span class="hp-label">All-Inclusive Stay</span>
-      <span class="hp-price">&#8377;3,999<small>/person/night</small></span>
-      <span class="hp-note">4 Meals Included &nbsp;·&nbsp; All Rooms</span>
-    </div>
     <div class="hero-ctas">
       <a href="#contact" class="btn-gold ripple"><i class="fab fa-whatsapp"></i> Book Your Stay</a>
       <a href="#about" class="btn-ghost">Explore Resort</a>
@@ -97,8 +164,8 @@
   <div class="container">
     <div class="about-inner">
       <div class="about-imgs reveal">
-        <div class="ab-main"><img src="images/about.jpeg" alt="The Dillzan Resort"/></div>
-        <div class="ab-small"><img src="images/hero-bg.jpeg" alt="Resort Night View"/></div>
+        <div class="ab-main zoom-img"><img src="images/about.jpeg" alt="The Dillzan Resort"/></div>
+        <div class="ab-small zoom-img"><img src="images/hero-bg.jpeg" alt="Resort Night View"/></div>
         <div class="ab-badge"><span>Est.</span><strong>2010</strong></div>
       </div>
       <div class="about-text reveal">
@@ -128,20 +195,19 @@
   </div>
 </section>
 
-<!-- OWNER SECTION -->
+<!-- OWNER -->
 <section id="owner" class="owner s-pad">
   <div class="container">
     <div class="sec-header reveal" style="margin-bottom:2rem">
       <p class="sec-label">Meet the Owner</p>
-      <h2 class="sec-title">The Heart Behind Dillzan</h2>
+      <h2 class="sec-title">Heart Behind The Dillzan Resort</h2>
       <div class="gold-line c"></div>
     </div>
     <div class="owner-inner">
       <div class="owner-photo-wrap reveal">
         <div class="owner-photo-ring"></div>
-        <img class="owner-photo" id="ownerPhoto" src="images/owner.jpeg"
-             alt="Dillzan Wadia — Owner, The Dillzan Resort"
-             onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23E5DDD2\'/%3E%3Ccircle cx=\'100\' cy=\'78\' r=\'38\' fill=\'%23C8960C\' opacity=\'.4\'/%3E%3Cellipse cx=\'100\' cy=\'160\' rx=\'55\' ry=\'45\' fill=\'%23C8960C\' opacity=\'.3\'/%3E%3Ctext x=\'100\' y=\'195\' text-anchor=\'middle\' fill=\'%238B6508\' font-size=\'11\' font-family=\'Georgia\' font-style=\'italic\'%3EDillzan Wadia%3C/text%3E%3C/svg%3E'"/>
+        <img class="owner-photo zoom-img" id="ownerPhoto" src="images/owner.jpeg" alt="Dillzan Wadia"
+          onerror="this.src='data:image/svg+xml,%3Csvg xmlns=\'http://www.w3.org/2000/svg\' viewBox=\'0 0 200 200\'%3E%3Crect width=\'200\' height=\'200\' fill=\'%23E5DDD2\'/%3E%3Ccircle cx=\'100\' cy=\'78\' r=\'38\' fill=\'%23C8960C\' opacity=\'.4\'/%3E%3C/svg%3E'"/>
         <span class="owner-badge">Actor &amp; Founder</span>
       </div>
       <div class="owner-text reveal">
@@ -161,9 +227,7 @@
           <br/><br/>
           Originally from Vadodara, Dillzan moved to Mumbai to pursue acting, supporting himself by running a small fast-food joint at King Circle while studying at Khalsa Junior College. His dedication earned him roles in acclaimed films before his passion for hospitality led him to develop boutique resorts in Goa and Lonavala — and now, Alibaug.
           <br/><br/>
-          When asked about his natural hosting abilities, Dillzan says: <em>"This quality comes from my parents. At our home, every guest was treated with love and humility, making them feel completely comfortable. I've simply carried forward those values into my profession."</em>
-          <br/><br/>
-          From facing the camera to creating curated guest experiences, Dillzan Wadia's journey reflects his passion for people, perseverance, and a commitment to redefining boutique hospitality in Alibaug.
+          When asked about his natural hosting abilities, Dillzan says: <em>"This quality comes from my parents. At our home, every guest was treated with love and humility, making them feel completely comfortable."</em>
         </p>
         <p class="owner-sign">— Dillzan Wadia</p>
       </div>
@@ -181,10 +245,8 @@
       <p class="sec-sub">15 rooms · All-inclusive · &#8377;3,999/person/night · 4 Meals Included</p>
     </div>
     <div class="rooms-grid">
-
-      <!-- DELUXE -->
       <div class="rc reveal">
-        <div class="rc-img"><img src="images/room-deluxe.jpeg" alt="Deluxe Room"/><span class="rc-badge pop">⭐ Popular</span><span class="rc-cnt">×5</span></div>
+        <div class="rc-img zoom-img"><img src="images/room-deluxe.jpeg" alt="Deluxe Room"/><span class="rc-badge pop">⭐ Popular</span><span class="rc-cnt">×5</span></div>
         <div class="rc-body">
           <div class="rc-name">Deluxe Room</div>
           <div class="rc-occ"><i class="fas fa-user-friends"></i> Double · Exactly 2 Guests</div>
@@ -195,19 +257,13 @@
             <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
           </div>
           <div class="rc-foot">
-            <div class="rc-price">
-              <small>per person/night</small>
-              <strong>&#8377;3,999</strong>
-              <span class="rc-total-note">2 persons = ₹7,998/night</span>
-            </div>
+            <div class="rc-price"><small>per person/night</small><strong>&#8377;3,999</strong><span class="rc-total-note">2 persons = ₹7,998/night</span></div>
             <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
           </div>
         </div>
       </div>
-
-      <!-- PREMIUM -->
       <div class="rc reveal">
-        <div class="rc-img"><img src="images/room-premium.jpeg" alt="Premium Room"/><span class="rc-badge prem">👑 Premium</span><span class="rc-cnt">×4</span></div>
+        <div class="rc-img zoom-img"><img src="images/room-premium.jpeg" alt="Premium Room"/><span class="rc-badge prem">👑 Premium</span><span class="rc-cnt">×4</span></div>
         <div class="rc-body">
           <div class="rc-name">Premium Room</div>
           <div class="rc-occ"><i class="fas fa-user-friends"></i> Double · Exactly 2 Guests</div>
@@ -218,19 +274,13 @@
             <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
           </div>
           <div class="rc-foot">
-            <div class="rc-price">
-              <small>per person/night</small>
-              <strong>&#8377;3,999</strong>
-              <span class="rc-total-note">2 persons = ₹7,998/night</span>
-            </div>
+            <div class="rc-price"><small>per person/night</small><strong>&#8377;3,999</strong><span class="rc-total-note">2 persons = ₹7,998/night</span></div>
             <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
           </div>
         </div>
       </div>
-
-      <!-- TRIPLE -->
       <div class="rc reveal">
-        <div class="rc-img"><img src="images/room-triple.jpeg" alt="Triple Room"/><span class="rc-badge tri">👥 Triple</span><span class="rc-cnt">×2</span></div>
+        <div class="rc-img zoom-img"><img src="images/room-triple.jpeg" alt="Triple Room"/><span class="rc-badge tri">👥 Triple</span><span class="rc-cnt">×2</span></div>
         <div class="rc-body">
           <div class="rc-name">Triple Room</div>
           <div class="rc-occ"><i class="fas fa-users"></i> Triple · Exactly 3 Guests</div>
@@ -241,19 +291,13 @@
             <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
           </div>
           <div class="rc-foot">
-            <div class="rc-price">
-              <small>per person/night</small>
-              <strong>&#8377;3,999</strong>
-              <span class="rc-total-note">3 persons = ₹11,997/night</span>
-            </div>
+            <div class="rc-price"><small>per person/night</small><strong>&#8377;3,999</strong><span class="rc-total-note">3 persons = ₹11,997/night</span></div>
             <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
           </div>
         </div>
       </div>
-
-      <!-- FAMILY -->
       <div class="rc reveal">
-        <div class="rc-img"><img src="images/room-family.jpeg" alt="Family Room"/><span class="rc-badge fam">🏠 Family</span><span class="rc-cnt">×1</span></div>
+        <div class="rc-img zoom-img"><img src="images/room-family.jpeg" alt="Family Room"/><span class="rc-badge fam">🏠 Family</span><span class="rc-cnt">×1</span></div>
         <div class="rc-body">
           <div class="rc-name">Family Room</div>
           <div class="rc-occ"><i class="fas fa-home"></i> Family · Exactly 4 Guests</div>
@@ -264,19 +308,13 @@
             <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
           </div>
           <div class="rc-foot">
-            <div class="rc-price">
-              <small>per person/night</small>
-              <strong>&#8377;3,999</strong>
-              <span class="rc-total-note">4 persons = ₹15,996/night</span>
-            </div>
+            <div class="rc-price"><small>per person/night</small><strong>&#8377;3,999</strong><span class="rc-total-note">4 persons = ₹15,996/night</span></div>
             <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
           </div>
         </div>
       </div>
-
-      <!-- DORMITORY -->
       <div class="rc reveal">
-        <div class="rc-img"><img src="images/room-dorm.avif" alt="Dormitory"/><span class="rc-badge dorm">🛏 Dorm</span><span class="rc-cnt">×2</span></div>
+        <div class="rc-img zoom-img"><img src="images/room-dorm.jpeg" alt="Dormitory"/><span class="rc-badge dorm">🛏 Dorm</span><span class="rc-cnt">×2</span></div>
         <div class="rc-body">
           <div class="rc-name">Dormitory</div>
           <div class="rc-occ"><i class="fas fa-users"></i> Group · 1–10 Persons</div>
@@ -287,16 +325,67 @@
             <div class="rc-feat"><i class="fas fa-check-circle"></i> 4 Meals/Day</div>
           </div>
           <div class="rc-foot">
-            <div class="rc-price">
-              <small>per person/night</small>
-              <strong>&#8377;3,999</strong>
-              <span class="rc-total-note">Book 1 bed or full dorm</span>
-            </div>
+            <div class="rc-price"><small>per person/night</small><strong>&#8377;3,999</strong><span class="rc-total-note">Book 1 bed or full dorm</span></div>
             <a href="#contact" class="rc-book ripple"><i class="fab fa-whatsapp"></i> Book</a>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
 
+<!-- RESTAURANT MENU -->
+<section id="menu" class="menu-sec s-pad">
+  <div class="menu-leaf-tl"></div>
+  <div class="menu-leaf-br"></div>
+  <div class="container">
+    <div class="sec-header reveal">
+      <p class="sec-label">Our Kitchen</p>
+      <h2 class="sec-title">Restaurant Menu</h2>
+      <div class="gold-line c"></div>
+      <p class="sec-sub">Authentic Parsi · Konkan · Gavathi Cuisine — All meals included in stay</p>
+    </div>
+
+    <div class="menu-book reveal">
+      <!-- Corner ornaments -->
+      <div class="mbc tl"></div>
+      <div class="mbc tr"></div>
+      <div class="mbc bl"></div>
+      <div class="mbc br"></div>
+
+      <!-- Book Header -->
+      <div class="menu-book-head">
+        <div class="menu-deco"><span class="mdl"></span><span class="mdi">✦</span><span class="mdl"></span></div>
+        <p class="menu-book-title">The Dillzan Resort</p>
+        <p class="menu-book-sub">Alibaug · Est. 2010 · Mandwa Jetty</p>
+        <div class="menu-deco"><span class="mdl"></span><span class="mdi">❧</span><span class="mdl"></span></div>
+      </div>
+
+      <!-- Category Tabs -->
+      <div class="menu-tabs-scroll">
+        <div class="menu-tabs">
+          <button class="mtab active" data-cat="all">✦ All</button>
+          <button class="mtab" data-cat="snacks">Snacks &amp; Pizza</button>
+          <button class="mtab" data-cat="seafood">Seafood</button>
+          <button class="mtab" data-cat="chicken">Chicken &amp; Eggs</button>
+          <button class="mtab" data-cat="beverages">Beverages</button>
+        </div>
+      </div>
+
+      <!-- Menu Items -->
+      <div class="menu-page" id="menuPage"></div>
+
+      <!-- Book Footer -->
+      <div class="menu-book-foot">
+        <div class="menu-deco"><span class="mdl"></span><span class="mdi">❧</span><span class="mdl"></span></div>
+        <p class="menu-foot-note">
+          <span class="mi-dot veg" style="display:inline-block;vertical-align:middle"></span>&nbsp;Vegetarian
+          &nbsp;&nbsp;&nbsp;
+          <span class="mi-dot nveg" style="display:inline-block;vertical-align:middle"></span>&nbsp;Non-Vegetarian
+        </p>
+        <p class="menu-foot-note">All meals freshly prepared · Prices per portion · Inclusive of taxes</p>
+        <p class="menu-foot-note" style="font-style:italic;margin-top:.3rem">* Staying guests — all meals included in tariff</p>
+      </div>
     </div>
   </div>
 </section>
@@ -308,7 +397,7 @@
       <p class="sec-label">Resort Facilities</p>
       <h2 class="sec-title">World-Class Amenities</h2>
       <div class="gold-line c"></div>
-      <p class="sec-sub">Everything for the perfect escape — all at Dillzan</p>
+      <p class="sec-sub">Everything for the perfect escape — all at The Dillzan Resort</p>
     </div>
     <div class="amen-grid" id="amenGrid"></div>
   </div>
@@ -320,6 +409,7 @@
     <div class="sec-header reveal">
       <p class="sec-label">Visual Stories</p>
       <h2 class="sec-title">Gallery</h2>
+      <p class="sec-label">Some beautiful moments in The Dillzan Resort</p>
       <div class="gold-line c"></div>
     </div>
     <div class="gal-filters">
@@ -379,11 +469,15 @@
         </div>
         <div class="ci-item">
           <div class="ci-icon"><i class="fas fa-envelope"></i></div>
-          <div><span class="ci-label">Email</span><span class="ci-val" id="cEmail">info@dillzanresort.com</span></div>
+          <div><span class="ci-label">Email</span><span class="ci-val" id="cEmail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="a1c8cfc7cee1c5c8cdcddbc0cfd3c4d2ced3d58fc2cecc">[email&#160;protected]</a></span></div>
         </div>
-        <div class="ci-item">
-          <div class="ci-icon"><i class="fas fa-map-marker-alt"></i></div>
-          <div><span class="ci-label">Location</span><span class="ci-val" id="cAddr">Near Ranavali Farm House And Resort, At: Rahatale, Post:Dhokawade, Ta:, Mandwa Jetty Rd, Rahatale, Alibag, Maharashtra 402208</span></div>
+        <div class="ci-item ci-location" onclick="openGoogleMaps()" style="cursor:pointer;" title="Open in Google Maps">
+          <div class="ci-icon ci-icon-map"><i class="fas fa-map-marker-alt"></i></div>
+          <div>
+            <span class="ci-label">Location <span class="map-hint">· Tap to open Maps</span></span>
+            <span class="ci-val" id="cAddr">Near Ranavali Farm House And Resort, At: Rahatale, Post: Dhokawade, Ta:, Mandwa Jetty Rd, Rahatale, Alibag, Maharashtra 402208</span>
+            <span class="ci-map-badge"><i class="fas fa-external-link-alt"></i> Open in Google Maps</span>
+          </div>
         </div>
         <div class="ci-item">
           <div class="ci-icon"><i class="fas fa-clock"></i></div>
@@ -399,21 +493,16 @@
 
       <!-- BOOKING FORM -->
       <div class="bform reveal">
-        <h3>Book Your Stay</h3>
-
-        <!-- Live price preview -->
-        <div id="pricePreview" style="display:none; background:linear-gradient(135deg,#1a2a1a,#0d1820); border:1px solid var(--gold); border-radius:8px; padding:.75rem 1rem; margin-bottom:1rem; text-align:center;">
-          <span style="color:#aaa; font-size:.78rem;">Total Estimate</span><br/>
-          <span id="previewAmt" style="color:var(--gold); font-size:1.4rem; font-weight:700;">₹0</span>
-          <span id="previewBreak" style="color:#aaa; font-size:.75rem; display:block; margin-top:.2rem;"></span>
+        <h3>Book &amp; Pay Online</h3>
+        <div id="pricePreview" style="display:none;background:rgba(139,101,8,.07);border:1px solid rgba(139,101,8,.3);border-radius:8px;padding:.75rem 1rem;margin-bottom:1rem;text-align:center;">
+          <span style="color:var(--grey);font-size:.75rem;text-transform:uppercase;letter-spacing:.1em;">Total Estimate</span><br/>
+          <span id="previewAmt" style="color:var(--gold);font-size:1.5rem;font-weight:700;font-family:var(--serif);">₹0</span>
+          <span id="previewBreak" style="color:var(--grey);font-size:.72rem;display:block;margin-top:.2rem;"></span>
         </div>
-
         <div class="fg"><label>Full Name *</label><input type="text" id="bName" placeholder="Your name"/></div>
         <div class="fg"><label>Phone / WhatsApp *</label><input type="tel" id="bPhone" placeholder="+91 XXXXX XXXXX"/></div>
         <div class="fg"><label>Check-In Date *</label><input type="date" id="bIn"/></div>
         <div class="fg"><label>Check-Out Date *</label><input type="date" id="bOut"/></div>
-
-        <!-- Room select -->
         <div class="fg"><label>Room Type *</label>
           <select id="bRoom">
             <option value="">Select Room</option>
@@ -424,27 +513,16 @@
             <option value="Dormitory">Dormitory — ₹3,999/person/night · 1–10 beds (flexible)</option>
           </select>
         </div>
-
-        <!-- Guests — auto-set & locked based on room -->
         <div class="fg">
           <label>No. of Guests</label>
-          <select id="bGuests">
-            <option value="1">1 Person</option>
-            <option value="2">2 Persons</option>
-            <option value="3">3 Persons</option>
-            <option value="4">4 Persons</option>
-          </select>
+          <select id="bGuests"><option value="1">1 Person</option><option value="2">2 Persons</option><option value="3">3 Persons</option><option value="4">4 Persons</option></select>
         </div>
-
         <div class="fg"><label>Special Requests</label><textarea id="bMsg" rows="3" placeholder="Any special requests..."></textarea></div>
-
-        <button class="btn-gold ripple" style="width:100%;font-size:.88rem;padding:.9rem;" onclick="sendEnq()">
-          <i class="fab fa-whatsapp"></i> Book via WhatsApp
+        <button class="btn-wa-book ripple" style="width:100%;font-size:.95rem;padding:1rem;" onclick="sendEnq()">
+          <i class="fab fa-whatsapp"></i> Send Booking on WhatsApp
         </button>
-
-        <p class="form-note"><i class="fas fa-lock"></i> We'll confirm your booking within 2 hours</p>
+        <p class="form-note"><i class="fas fa-shield-alt"></i> Instant WhatsApp confirmation · Reply within 2 hours</p>
       </div>
-
     </div>
   </div>
 </section>
@@ -470,18 +548,18 @@
           <li><a href="#about"><i class="fas fa-chevron-right"></i> About</a></li>
           <li><a href="#owner"><i class="fas fa-chevron-right"></i> Our Owner</a></li>
           <li><a href="#rooms"><i class="fas fa-chevron-right"></i> Rooms</a></li>
+          <li><a href="#menu"><i class="fas fa-chevron-right"></i> Menu</a></li>
           <li><a href="#amenities"><i class="fas fa-chevron-right"></i> Amenities</a></li>
           <li><a href="#gallery"><i class="fas fa-chevron-right"></i> Gallery</a></li>
           <li><a href="#contact"><i class="fas fa-chevron-right"></i> Book Now</a></li>
-          <li><a href="#" onclick="openAdmin(event)"><i class="fas fa-user-shield"></i> Admin</a></li>
         </ul>
       </div>
       <div class="ft-col">
         <h4>Resort Info</h4>
         <ul class="ft-info">
-          <li><i class="fas fa-map-marker-alt"></i><span id="ftAddr">Near Ranavali Farm House And Resort, At: Rahatale, Post: Dhokawade, Ta:, Mandwa Jetty Rd, Rahatale, Alibag, Maharashtra 402208</span></li>
+          <li><i class="fas fa-map-marker-alt" style="cursor:pointer" onclick="openGoogleMaps()"></i><span id="ftAddr" style="cursor:pointer" onclick="openGoogleMaps()">Near Ranavali Farm House And Resort, At: Rahatale, Post: Dhokawade, Ta:, Mandwa Jetty Rd, Rahatale, Alibag, Maharashtra 402208</span></li>
           <li><i class="fas fa-phone-alt"></i><span>+91 77159 66111</span></li>
-          <li><i class="fas fa-envelope"></i><span id="ftEmail">info@dillzanresort.com</span></li>
+          <li><i class="fas fa-envelope"></i><span id="ftEmail"><a href="/cdn-cgi/l/email-protection" class="__cf_email__" data-cfemail="442d2a222b04202d28283e252a3621372b36306a272b29">[email&#160;protected]</a></span></li>
           <li><i class="fas fa-clock"></i><span>Check-in 12PM · Out 11AM</span></li>
           <li><i class="fas fa-ship"></i><span>1 Min from Mandwa Jetty</span></li>
         </ul>
@@ -500,13 +578,12 @@
   </div>
   <div class="footer-bottom">
     <div class="container fbot">
-      <p>© 2025 The Dillzan Resort, Alibaug. All rights reserved.</p>
+      <p>© 2026 The Dillzan Resort, Alibaug. All rights reserved.</p>
       <button class="admin-btn" onclick="openAdmin(event)"><i class="fas fa-user-shield"></i> Admin</button>
     </div>
   </div>
 </footer>
 
-<!-- FLOATING WHATSAPP -->
 <a href="https://wa.me/917715966111" id="floatWa" class="float-wa" target="_blank"><i class="fab fa-whatsapp"></i></a>
 <button class="btt" id="btt" onclick="window.scrollTo({top:0,behavior:'smooth'})"><i class="fas fa-chevron-up"></i></button>
 
@@ -528,6 +605,7 @@
   <div class="adm-dash" id="admDash" style="display:none">
     <div class="adm-tabs">
       <button class="atab active" data-t="general">General</button>
+      <button class="atab" data-t="menu">Menu</button>
       <button class="atab" data-t="gallery">Gallery</button>
       <button class="atab" data-t="amenities">Amenities</button>
       <button class="atab" data-t="reviews">Reviews</button>
@@ -537,15 +615,37 @@
     </div>
     <div class="atab-c active" id="t-general">
       <h4>General Settings</h4>
-      <div class="fg"><label>Owner Message (Quote)</label><textarea id="aOwnerMsg" rows="4" placeholder="Welcome message from owner..."></textarea></div>
-      <div class="fg"><label>Owner Description</label><textarea id="aOwnerDesc" rows="4" placeholder="Owner bio..."></textarea></div>
+      <div class="fg"><label>Owner Message (Quote)</label><textarea id="aOwnerMsg" rows="4"></textarea></div>
+      <div class="fg"><label>Owner Description</label><textarea id="aOwnerDesc" rows="4"></textarea></div>
       <div class="fg"><label>Upload Owner Photo</label><input type="file" id="aOwnerPhoto" accept="image/*" onchange="updateOwnerPhoto(this)"/></div>
-      <div class="fg"><label>Deluxe Room Availability</label><select id="aDeluxe"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
-      <div class="fg"><label>Premium Room Availability</label><select id="aPremium"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
-      <div class="fg"><label>Triple Room Availability</label><select id="aTriple"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
-      <div class="fg"><label>Family Room Availability</label><select id="aFamily"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
-      <div class="fg"><label>Dormitory Availability</label><select id="aDorm"><option>Available</option><option>Subject to Availability</option><option>Fully Booked</option></select></div>
+      <div class="fg"><label>Google Maps URL</label><input type="url" id="aMapUrl" placeholder="https://maps.google.com/?q=..."/></div>
       <button class="btn-gold" onclick="saveGeneral()">Save</button>
+    </div>
+    <div class="atab-c" id="t-menu">
+      <h4>Manage Menu</h4>
+      <div id="menuAdmList"></div>
+      <div class="adm-add">
+        <h5><i class="fas fa-plus-circle"></i> Add Menu Item</h5>
+        <div class="fg"><label>Item Name</label><input type="text" id="nMName" placeholder="e.g. Pomfret Fry"/></div>
+        <div class="fg"><label>Category</label>
+          <select id="nMCat">
+            <option value="starters">Starters</option>
+            <option value="mains">Main Course</option>
+            <option value="seafood">Seafood</option>
+            <option value="desserts">Desserts</option>
+            <option value="beverages">Beverages</option>
+          </select>
+        </div>
+        <div class="fg"><label>Price (₹)</label><input type="number" id="nMPrice" placeholder="350"/></div>
+        <div class="fg"><label>Description</label><input type="text" id="nMDesc" placeholder="Short description..."/></div>
+        <div class="fg"><label>Type</label>
+          <select id="nMVeg">
+            <option value="false">Non-Vegetarian</option>
+            <option value="true">Vegetarian</option>
+          </select>
+        </div>
+        <button class="btn-gold" onclick="addMenuItem()">Add Item</button>
+      </div>
     </div>
     <div class="atab-c" id="t-gallery">
       <h4>Manage Gallery</h4>
@@ -554,7 +654,7 @@
         <h5><i class="fas fa-plus-circle"></i> Add Image</h5>
         <div class="fg"><label>Caption</label><input type="text" id="nGCap" placeholder="e.g. Pool View"/></div>
         <div class="fg"><label>Category</label><select id="nGCat"><option value="resort">Resort</option><option value="rooms">Rooms</option><option value="food">Food</option></select></div>
-        <div class="fg"><label>Wide? (spans 2 cols)</label><select id="nGWide"><option value="false">No</option><option value="true">Yes</option></select></div>
+        <div class="fg"><label>Wide?</label><select id="nGWide"><option value="false">No</option><option value="true">Yes</option></select></div>
         <div class="fg"><label>Upload Image</label><input type="file" id="nGFile" accept="image/*" onchange="handleGalUpload(this)"/></div>
         <button class="btn-gold" onclick="addGalItem()">Add</button>
       </div>
@@ -564,9 +664,9 @@
       <div id="amenAdmList"></div>
       <div class="adm-add">
         <h5><i class="fas fa-plus-circle"></i> Add Amenity</h5>
-        <div class="fg"><label>Name</label><input type="text" id="nAName" placeholder="e.g. Volleyball Court"/></div>
-        <div class="fg"><label>Icon (FA class)</label><input type="text" id="nAIcon" placeholder="fa-volleyball-ball"/></div>
-        <div class="fg"><label>Description</label><input type="text" id="nADesc" placeholder="Short description"/></div>
+        <div class="fg"><label>Name</label><input type="text" id="nAName"/></div>
+        <div class="fg"><label>Icon (FA class)</label><input type="text" id="nAIcon" placeholder="fa-swimming-pool"/></div>
+        <div class="fg"><label>Description</label><input type="text" id="nADesc"/></div>
         <button class="btn-gold" onclick="addAmen()">Add</button>
       </div>
     </div>
@@ -592,9 +692,9 @@
     </div>
     <div class="atab-c" id="t-social">
       <h4>Social Links</h4>
-      <div class="fg"><label>WhatsApp Number</label><input type="text" id="sWA" placeholder="917715966111"/></div>
+      <div class="fg"><label>WhatsApp Number</label><input type="text" id="sWA"/></div>
       <div class="fg"><label>Instagram URL</label><input type="url" id="sIG"/></div>
-      <div class="fg"><label>Instagram Handle</label><input type="text" id="sIGH" placeholder="@the_dilzan_resort"/></div>
+      <div class="fg"><label>Instagram Handle</label><input type="text" id="sIGH"/></div>
       <div class="fg"><label>Facebook URL</label><input type="url" id="sFB"/></div>
       <button class="btn-gold" onclick="saveSocial()">Save</button>
     </div>
@@ -613,4 +713,5 @@
 <script src="script.js"></script>
 </body>
 </html>
+
 

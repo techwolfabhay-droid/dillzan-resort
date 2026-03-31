@@ -4,7 +4,7 @@
 const DEF = {
   password: 'dillzan2025',
   mapUrl: 'https://maps.google.com/?q=The+Dillzan+Resort+Alibaug+Mandwa+Jetty',
-  contact: { email:'info@dillzanresort.com', address:'Alibaug, Raigad · 1 min from Mandwa Jetty', whatsapp:'917715966111' },
+  contact: { email:'info@dillzanresort.com', address:'Near Ranavali Farm House And Resort, At: Rahatale, Post: Dhokawade, Ta:, Mandwa Jetty Rd, Rahatale, Alibag, Maharashtra 402208', whatsapp:'917715966111' },
   social: { whatsapp:'917715966111', instagram:'https://www.instagram.com/the_dilzan_resort?igsh=MWdwaXV3Mnhta3p1aA==', igHandle:'@the_dilzan_resort', facebook:'https://www.facebook.com/dillzanresort' },
   amenities: [
     {id:1,icon:'fa-swimming-pool',name:'Swimming Pool',desc:'Beautiful pool to relax and unwind'},

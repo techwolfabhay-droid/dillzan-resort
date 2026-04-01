@@ -1,0 +1,348 @@
+/* ════════════════════════════════════════
+   DILLZAN RESORT — ANIMATIONS.CSS
+   Fun & Vibrant Effects Layer
+   Add <link rel="stylesheet" href="animations.css"/>
+   in <head> AFTER style.css
+════════════════════════════════════════ */
+
+/* ──────────────────────────────────────
+   1. FLOATING BUBBLES (Hero Background)
+────────────────────────────────────── */
+.dz-bubbles {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  overflow: hidden;
+  pointer-events: none;
+}
+.dz-bubble {
+  position: absolute;
+  bottom: -60px;
+  border-radius: 50%;
+  opacity: 0;
+  animation: bubbleRise linear infinite;
+}
+.dz-bubble:nth-child(1)  { left:5%;  width:10px; height:10px; background:rgba(255,215,0,.25); animation-duration:8s;  animation-delay:0s;   }
+.dz-bubble:nth-child(2)  { left:12%; width:16px; height:16px; background:rgba(255,215,0,.15); animation-duration:11s; animation-delay:1.2s; }
+.dz-bubble:nth-child(3)  { left:22%; width:8px;  height:8px;  background:rgba(255,215,0,.2);  animation-duration:9s;  animation-delay:2.5s; }
+.dz-bubble:nth-child(4)  { left:35%; width:20px; height:20px; background:rgba(255,215,0,.1);  animation-duration:13s; animation-delay:0.8s; }
+.dz-bubble:nth-child(5)  { left:48%; width:6px;  height:6px;  background:rgba(255,215,0,.3);  animation-duration:7s;  animation-delay:3.5s; }
+.dz-bubble:nth-child(6)  { left:58%; width:14px; height:14px; background:rgba(255,215,0,.18); animation-duration:10s; animation-delay:1.8s; }
+.dz-bubble:nth-child(7)  { left:68%; width:9px;  height:9px;  background:rgba(255,215,0,.22); animation-duration:12s; animation-delay:0.5s; }
+.dz-bubble:nth-child(8)  { left:78%; width:18px; height:18px; background:rgba(255,215,0,.12); animation-duration:9.5s;animation-delay:2.1s; }
+.dz-bubble:nth-child(9)  { left:88%; width:7px;  height:7px;  background:rgba(255,215,0,.28); animation-duration:8.5s;animation-delay:4s;   }
+.dz-bubble:nth-child(10) { left:94%; width:12px; height:12px; background:rgba(255,215,0,.2);  animation-duration:11.5s;animation-delay:1s;  }
+.dz-bubble:nth-child(11) { left:28%; width:5px;  height:5px;  background:rgba(200,180,80,.3); animation-duration:6.5s;animation-delay:2.8s; }
+.dz-bubble:nth-child(12) { left:72%; width:22px; height:22px; background:rgba(255,215,0,.08); animation-duration:14s; animation-delay:0.3s; }
+
+@keyframes bubbleRise {
+  0%   { transform: translateY(0) translateX(0) scale(0.4); opacity: 0; }
+  10%  { opacity: 1; }
+  85%  { opacity: 0.6; }
+  100% { transform: translateY(-110vh) translateX(30px) scale(1.1); opacity: 0; }
+}
+
+/* ──────────────────────────────────────
+   2. HERO TEXT CINEMATIC ENTRANCE
+────────────────────────────────────── */
+.hero-eyebrow {
+  animation: heroFadeUp 0.9s cubic-bezier(.22,.68,0,1.2) 0.3s both;
+}
+.ht-the {
+  animation: heroFadeUp 0.9s cubic-bezier(.22,.68,0,1.2) 0.55s both;
+}
+.ht-main {
+  animation: heroZoomIn 1s cubic-bezier(.22,.68,0,1.35) 0.75s both;
+}
+.ht-resort {
+  animation: heroFadeUp 0.9s cubic-bezier(.22,.68,0,1.2) 0.95s both;
+}
+.hero-sub {
+  animation: heroFadeUp 0.8s ease 1.1s both;
+}
+.hero-ctas {
+  animation: heroFadeUp 0.8s ease 1.3s both;
+}
+.hero-slider-dots {
+  animation: heroFadeUp 0.7s ease 1.5s both;
+}
+
+@keyframes heroFadeUp {
+  from { opacity: 0; transform: translateY(22px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes heroZoomIn {
+  from { opacity: 0; transform: scale(0.75) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ──────────────────────────────────────
+   3. CTA BUTTON SHIMMER / PULSE
+────────────────────────────────────── */
+.btn-gold {
+  position: relative;
+  overflow: hidden;
+}
+.btn-gold::after {
+  content: '';
+  position: absolute;
+  top: 0; left: -100%;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(120deg, transparent, rgba(255,255,255,.35), transparent);
+  animation: shimmer 3s ease-in-out infinite;
+}
+@keyframes shimmer {
+  0%   { left: -100%; }
+  40%  { left: 130%; }
+  100% { left: 130%; }
+}
+
+/* Book Now buttons pulse ring */
+.hero-ctas .btn-gold {
+  animation: heroFadeUp 0.8s ease 1.3s both, pulseBorder 2.5s ease-in-out 2s infinite;
+}
+@keyframes pulseBorder {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(139,101,8,.45); }
+  50%       { box-shadow: 0 0 0 10px rgba(139,101,8,0); }
+}
+
+/* ──────────────────────────────────────
+   4. FLOATING WHATSAPP BUTTON BOUNCE
+────────────────────────────────────── */
+#floatWa {
+  animation: waBounce 2.5s cubic-bezier(.36,.07,.19,.97) 2s infinite;
+}
+@keyframes waBounce {
+  0%, 100% { transform: translateY(0) scale(1); }
+  20%       { transform: translateY(-10px) scale(1.08); }
+  40%       { transform: translateY(-4px) scale(1.02); }
+  60%       { transform: translateY(-7px) scale(1.05); }
+  80%       { transform: translateY(-2px) scale(1.01); }
+}
+
+/* ──────────────────────────────────────
+   5. SCROLL REVEAL — BOUNCY VARIANT
+────────────────────────────────────── */
+.reveal {
+  opacity: 0;
+  transform: translateY(32px) scale(0.97);
+  transition: opacity 0.65s cubic-bezier(.22,.68,0,1.2),
+              transform 0.65s cubic-bezier(.22,.68,0,1.2);
+}
+.reveal.on {
+  opacity: 1;
+  transform: translateY(0) scale(1);
+}
+
+/* ──────────────────────────────────────
+   6. ROOM CARDS — HOVER LIFT + GLOW
+────────────────────────────────────── */
+.rc {
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2),
+              box-shadow 0.35s ease !important;
+}
+.rc:hover {
+  transform: translateY(-7px) scale(1.02);
+  box-shadow: 0 16px 40px rgba(139,101,8,.2) !important;
+}
+
+/* ──────────────────────────────────────
+   7. AMENITY ICONS — SPIN ON HOVER
+────────────────────────────────────── */
+.amen-card {
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2),
+              box-shadow 0.35s ease,
+              border-color 0.3s ease !important;
+}
+.amen-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 28px rgba(139,101,8,.15) !important;
+  border-color: rgba(139,101,8,.35) !important;
+}
+.amen-card:hover .amen-icon i {
+  animation: iconSpin 0.55s cubic-bezier(.22,.68,0,1.35) forwards;
+}
+@keyframes iconSpin {
+  0%   { transform: rotate(0deg) scale(1); }
+  40%  { transform: rotate(-18deg) scale(1.25); }
+  70%  { transform: rotate(8deg) scale(1.1); }
+  100% { transform: rotate(0deg) scale(1.15); }
+}
+
+/* ──────────────────────────────────────
+   8. STATS BAR — POP-IN ANIMATION
+────────────────────────────────────── */
+.stat {
+  animation: statPop 0.6s cubic-bezier(.22,.68,0,1.35) both;
+}
+.stat:nth-child(1) { animation-delay: 0s; }
+.stat:nth-child(2) { animation-delay: 0.12s; }
+.stat:nth-child(3) { animation-delay: 0.24s; }
+.stat:nth-child(4) { animation-delay: 0.36s; }
+@keyframes statPop {
+  from { opacity: 0; transform: scale(0.7) translateY(10px); }
+  to   { opacity: 1; transform: scale(1) translateY(0); }
+}
+
+/* ──────────────────────────────────────
+   9. GALLERY ITEMS — COLORFUL HOVER
+────────────────────────────────────── */
+.gal-item {
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2),
+              box-shadow 0.35s ease !important;
+}
+.gal-item:hover {
+  transform: scale(1.04) rotate(0.5deg);
+  box-shadow: 0 12px 32px rgba(139,101,8,.25) !important;
+  z-index: 2;
+}
+
+/* ──────────────────────────────────────
+   10. SECTION HEADINGS — SLIDE IN
+────────────────────────────────────── */
+.sec-label {
+  display: inline-block;
+}
+.sec-header.reveal.on .sec-label {
+  animation: labelSlide 0.6s ease 0.1s both;
+}
+.sec-header.reveal.on .sec-title {
+  animation: titleSlide 0.7s cubic-bezier(.22,.68,0,1.2) 0.2s both;
+}
+.sec-header.reveal.on .gold-line {
+  animation: lineExpand 0.6s ease 0.35s both;
+}
+@keyframes labelSlide {
+  from { opacity: 0; transform: translateX(-16px); }
+  to   { opacity: 1; transform: translateX(0); }
+}
+@keyframes titleSlide {
+  from { opacity: 0; transform: translateY(18px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes lineExpand {
+  from { transform: scaleX(0); opacity: 0; }
+  to   { transform: scaleX(1); opacity: 1; }
+}
+
+/* ──────────────────────────────────────
+   11. NAVBAR LOGO — WIGGLE ON HOVER
+────────────────────────────────────── */
+.nav-logo img {
+  transition: transform 0.3s ease !important;
+}
+.nav-logo:hover img {
+  animation: logoWiggle 0.5s ease;
+}
+@keyframes logoWiggle {
+  0%, 100% { transform: rotate(0deg); }
+  20% { transform: rotate(-8deg) scale(1.05); }
+  50% { transform: rotate(6deg) scale(1.08); }
+  75% { transform: rotate(-4deg) scale(1.04); }
+}
+
+/* ──────────────────────────────────────
+   12. PRICE CARD — SPARKLE BORDER
+────────────────────────────────────── */
+.price-card {
+  position: relative;
+  overflow: hidden;
+}
+.price-card::before {
+  content: '';
+  position: absolute;
+  top: -50%; left: -50%;
+  width: 200%; height: 200%;
+  background: conic-gradient(
+    transparent 0deg,
+    rgba(200,150,12,.4) 60deg,
+    transparent 120deg,
+    transparent 360deg
+  );
+  animation: sparkleRotate 4s linear infinite;
+  opacity: 0.4;
+}
+.price-card::after {
+  content: '';
+  position: absolute;
+  inset: 1px;
+  background: rgba(139,101,8,.06);
+  border-radius: inherit;
+}
+.price-card > * {
+  position: relative;
+  z-index: 1;
+}
+@keyframes sparkleRotate {
+  from { transform: rotate(0deg); }
+  to   { transform: rotate(360deg); }
+}
+
+/* ──────────────────────────────────────
+   13. REVIEW CARDS — FLOAT ON HOVER
+────────────────────────────────────── */
+.rev-card {
+  transition: transform 0.35s cubic-bezier(.22,.68,0,1.2),
+              box-shadow 0.35s ease !important;
+}
+.rev-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 16px 36px rgba(0,0,0,.12) !important;
+}
+
+/* ──────────────────────────────────────
+   14. BOOK BUTTON (RC-BOOK) JIGGLE
+────────────────────────────────────── */
+.rc-book {
+  transition: transform 0.2s ease, background 0.2s ease !important;
+}
+.rc-book:hover {
+  transform: scale(1.08);
+  animation: bookJiggle 0.4s ease;
+}
+@keyframes bookJiggle {
+  0%, 100% { transform: scale(1.08) rotate(0deg); }
+  30% { transform: scale(1.1) rotate(-3deg); }
+  60% { transform: scale(1.09) rotate(2deg); }
+}
+
+/* ──────────────────────────────────────
+   15. FOOTER LINKS HOVER UNDERLINE
+────────────────────────────────────── */
+.ft-link {
+  position: relative;
+  display: inline-block;
+}
+.ft-link::after {
+  content: '';
+  position: absolute;
+  bottom: -2px; left: 0;
+  width: 0; height: 1px;
+  background: var(--gold-y);
+  transition: width 0.3s ease;
+}
+.ft-link:hover::after {
+  width: 100%;
+}
+
+/* ──────────────────────────────────────
+   16. MOBILE — REDUCE HEAVY ANIMATIONS
+────────────────────────────────────── */
+@media (max-width: 480px) {
+  .dz-bubble { display: none; } /* save battery */
+  .price-card::before { animation-duration: 6s; opacity: 0.25; }
+  .rc:hover  { transform: translateY(-4px) scale(1.01); }
+  .gal-item:hover { transform: scale(1.02); }
+}
+
+/* ──────────────────────────────────────
+   17. RESPECT REDUCED MOTION
+────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}

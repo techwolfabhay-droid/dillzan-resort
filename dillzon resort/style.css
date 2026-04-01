@@ -125,7 +125,7 @@ p{line-height:1.75;color:var(--lgrey);}
 .hero-slide.active{opacity:1;}
 .hero-slide img{width:100%;height:100%;object-fit:cover;transition:transform 8s ease;}
 .hero-slide.active img{transform:scale(1.08);}
-.hero-slider-dots{position:absolute;bottom:6rem;left:50%;transform:translateX(-50%);z-index:3;display:flex;gap:.5rem;}
+.hero-slider-dots{display: none !important;}
 .hero-dot{width:8px;height:8px;border-radius:50%;border:1.5px solid rgba(255,215,0,.5);background:transparent;cursor:pointer;transition:all .3s ease;padding:0;}
 .hero-dot.active{background:var(--gold-y);border-color:var(--gold-y);width:28px;border-radius:4px;}
 

@@ -49,23 +49,28 @@ const DEF = {
     {id:118,cat:'beverages',name:'Fresh Lime',desc:'Refreshing fresh lime juice — sweet or salted',veg:true},
     {id:119,cat:'beverages',name:'Ice Milk',desc:'Chilled cold milk — simple and refreshing',veg:true},
   ],
-  gallery: [
-    {id:1,src:'images/hero1.jpeg',cap:'Swimming Pool',cat:'resort'},
-    {id:2,src:'images/hero2.jpeg',cap:'Resort Night View',cat:'resort'},
-    {id:3,src:'images/hero4.jpeg',cap:'Resort View',cat:'resort'},
-    {id:4,src:'images/about.jpeg',cap:'Resort Grounds',cat:'resort'},
-    {id:5,src:'images/room-deluxe.jpeg',cap:'Deluxe Room',cat:'rooms'},
-    {id:6,src:'images/room-triple.jpeg',cap:'Triple Room',cat:'rooms'},
-    {id:7,src:'images/room-premium.jpeg',cap:'Premium Room',cat:'rooms'},
-    {id:8,src:'images/room-family.jpeg',cap:'Family Room',cat:'rooms'},
-    {id:9,src:'images/room-dorm.jpeg',cap:'Dormitory',cat:'rooms'},
-    {id:10,src:'images/gallery-6.jpeg',cap:'Pomfret Fry',cat:'food'},
-    {id:11,src:'images/gallery-2.jpeg',cap:'Crab Masala',cat:'food'},
-    {id:12,src:'images/gallery-3.jpeg',cap:'Fish Fry',cat:'food'},
-    {id:13,src:'images/gallery-1.jpeg',cap:'Chicken Special',cat:'food'},
-    {id:14,src:'images/gallery-5.jpeg',cap:'Masala Papad',cat:'food'},
-    {id:15,src:'images/gallery-7.jpeg',cap:'Crispy Fries',cat:'food'},
-  ]
+ gallery: [
+  {id:1, src:'images/gallery1.jpeg'},
+  {id:2, src:'images/gallery2.jpeg'},
+  {id:3, src:'images/gallery3.jpeg'},
+  {id:4, src:'images/gallery4.jpeg'},
+  {id:5, src:'images/gallery5.jpeg'},
+  {id:6, src:'images/gallery6.jpeg'},
+  {id:7, src:'images/gallery7.jpeg'},
+  {id:8, src:'images/gallery8.jpeg'},
+  {id:9, src:'images/gallery9.jpeg'},
+  {id:10, src:'images/gallery10.jpeg'},
+  {id:11, src:'images/gallery11.jpeg'},
+  {id:12, src:'images/gallery12.jpeg'},
+  {id:13, src:'images/gallery13.jpeg'},
+  {id:14, src:'images/gallery14.jpeg'},
+  {id:15, src:'images/gallery15.jpeg'},
+  {id:16, src:'images/gallery16.jpeg'},
+  {id:17, src:'images/gallery17.jpeg'},
+  {id:18, src:'images/gallery18.jpeg'},
+  {id:19, src:'images/gallery19.jpeg'},
+  {id:20, src:'images/gallery20.jpeg'}
+]
 };
 
 function load(){try{const s=localStorage.getItem('dz3');if(s)return{...DEF,...JSON.parse(s)};}catch(e){}return{...DEF};}

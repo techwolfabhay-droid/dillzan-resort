@@ -50,18 +50,21 @@ const DEF = {
     {id:119,cat:'beverages',name:'Ice Milk',desc:'Chilled cold milk — simple and refreshing',veg:true},
   ],
   gallery: [
-    {id:1,src:'images/hero1.jpeg',cap:'Swimming Pool',cat:'resort',wide:true},
-    {id:2,src:'images/hero2.jpeg',cap:'Resort Night View',cat:'resort',wide:false},
-    {id:3,src:'images/room-deluxe.jpeg',cap:'Deluxe Room',cat:'rooms',wide:false},
-    {id:4,src:'images/room-triple.jpeg',cap:'Triple Room',cat:'rooms',wide:false},
-    {id:5,src:'images/room-premium.jpeg',cap:'Premium Room',cat:'rooms',wide:false},
-    {id:6,src:'images/room-family.jpeg',cap:'Family Room',cat:'rooms',wide:false},
-    {id:7,src:'images/gallery-6.jpeg',cap:'Pomfret Fry',cat:'food',wide:false},
-    {id:8,src:'images/gallery-2.jpeg',cap:'Crab Masala',cat:'food',wide:false},
-    {id:9,src:'images/gallery-3.jpeg',cap:'Fish Fry',cat:'food',wide:false},
-    {id:10,src:'images/gallery-1.jpeg',cap:'Chicken Special',cat:'food',wide:false},
-    {id:11,src:'images/gallery-5.jpeg',cap:'Masala Pap',cat:'food',wide:false},
-    {id:12,src:'images/gallery-7.jpeg',cap:'Crispy Fries',cat:'food',wide:true},
+    {id:1,src:'images/hero1.jpeg',cap:'Swimming Pool',cat:'resort'},
+    {id:2,src:'images/hero2.jpeg',cap:'Resort Night View',cat:'resort'},
+    {id:3,src:'images/hero4.jpeg',cap:'Resort View',cat:'resort'},
+    {id:4,src:'images/about.jpeg',cap:'Resort Grounds',cat:'resort'},
+    {id:5,src:'images/room-deluxe.jpeg',cap:'Deluxe Room',cat:'rooms'},
+    {id:6,src:'images/room-triple.jpeg',cap:'Triple Room',cat:'rooms'},
+    {id:7,src:'images/room-premium.jpeg',cap:'Premium Room',cat:'rooms'},
+    {id:8,src:'images/room-family.jpeg',cap:'Family Room',cat:'rooms'},
+    {id:9,src:'images/room-dorm.jpeg',cap:'Dormitory',cat:'rooms'},
+    {id:10,src:'images/gallery-6.jpeg',cap:'Pomfret Fry',cat:'food'},
+    {id:11,src:'images/gallery-2.jpeg',cap:'Crab Masala',cat:'food'},
+    {id:12,src:'images/gallery-3.jpeg',cap:'Fish Fry',cat:'food'},
+    {id:13,src:'images/gallery-1.jpeg',cap:'Chicken Special',cat:'food'},
+    {id:14,src:'images/gallery-5.jpeg',cap:'Masala Papad',cat:'food'},
+    {id:15,src:'images/gallery-7.jpeg',cap:'Crispy Fries',cat:'food'},
   ]
 };
 
@@ -84,7 +87,7 @@ function doPageTransition(cb) {
 ══════════════════════════════ */
 let heroIdx = 0;
 let heroTimer = null;
-const SLIDE_INTERVAL = 2500;
+const SLIDE_INTERVAL = 3000;
 
 function initHeroSlider() {
   const slides = document.querySelectorAll('.hero-slide');
@@ -138,8 +141,8 @@ window.openGoogleMaps = openGoogleMaps;
    LOADER
 ══════════════════════════════ */
 function dismissLoader(){const l=document.getElementById('loader');if(l)l.classList.add('done');}
-window.addEventListener('load',()=>setTimeout(dismissLoader,1800));
-setTimeout(dismissLoader,3000);
+window.addEventListener('load',()=>setTimeout(dismissLoader,2000));
+setTimeout(dismissLoader,3500);
 
 /* ══════════════════════════════
    NAVBAR
@@ -261,28 +264,14 @@ function menuItemHTML(item) {
   </div>`;
 }
 
-function renderMenu(cat = 'all') {
+/* Default to 'snacks' since "All" tab is removed */
+function renderMenu(cat = 'snacks') {
   const page = document.getElementById('menuPage');
   if (!page) return;
-  let html = '';
-  if (cat === 'all') {
-    Object.keys(MENU_CATS).forEach(c => {
-      const items = (D.menu || []).filter(m => m.cat === c);
-      if (!items.length) return;
-      html += `<div class="menu-cat-group">
-        <div class="menu-cat-divider">
-          <span class="mcd-line"></span>
-          <span class="mcd-name">${MENU_CATS[c]}</span>
-          <span class="mcd-line"></span>
-        </div>
-        ${items.map(menuItemHTML).join('')}
-      </div>`;
-    });
-  } else {
-    const items = (D.menu || []).filter(m => m.cat === cat);
-    html = items.map(menuItemHTML).join('');
-  }
-  page.innerHTML = html || '<p style="text-align:center;color:var(--grey);padding:2rem;">No items found.</p>';
+  const items = (D.menu || []).filter(m => m.cat === cat);
+  page.innerHTML = items.length
+    ? items.map(menuItemHTML).join('')
+    : '<p style="text-align:center;color:var(--grey);padding:2rem;">No items found.</p>';
 }
 
 function initMenuTabs() {
@@ -326,10 +315,10 @@ function addMenuItem() {
   if (!D.menu) D.menu = [];
   D.menu.push({ id: Date.now(), cat, name, desc, veg });
   save();
-  renderMenu('all');
+  renderMenu(cat);
   document.querySelectorAll('.mtab').forEach(t => {
     t.classList.remove('active');
-    if (t.dataset.cat === 'all') t.classList.add('active');
+    if (t.dataset.cat === cat) t.classList.add('active');
   });
   renderAdmMenu();
   aMsg('Menu item added!', 'ok');
@@ -339,33 +328,96 @@ function addMenuItem() {
 function delMenuItem(id) {
   if (!confirm('Delete this item?')) return;
   D.menu = (D.menu || []).filter(m => m.id !== id);
-  save(); renderMenu('all'); renderAdmMenu();
+  save();
+  const activeCat = document.querySelector('.mtab.active');
+  renderMenu(activeCat ? activeCat.dataset.cat : 'snacks');
+  renderAdmMenu();
   aMsg('Deleted.', 'ok');
 }
 window.addMenuItem = addMenuItem;
 window.delMenuItem = delMenuItem;
 
 /* ══════════════════════════════
-   GALLERY
+   GALLERY — SWIPER SLIDER
 ══════════════════════════════ */
-let galFiltered=[],lbIdx=0;
-function renderGal(cat='all'){
-  galFiltered=cat==='all'?D.gallery:D.gallery.filter(g=>g.cat===cat);
-  const g=document.getElementById('galGrid');if(!g)return;
-  g.innerHTML=galFiltered.map((item,i)=>`<div class="gal-item${item.wide?' wide':''} reveal zoom-img" onclick="openLB(${i})"><img src="${item.src}" alt="${item.cap}" loading="lazy"/><div class="gal-overlay"><i class="fas fa-search-plus"></i></div></div>`).join('');
-  observeReveal();
+let galFiltered = [];
+let lbIdx = 0;
+let galSwiper = null;
+
+function renderGal(cat = 'all') {
+  galFiltered = cat === 'all' ? [...D.gallery] : D.gallery.filter(g => g.cat === cat);
+  const wrap = document.getElementById('galWrap');
+  if (!wrap) return;
+
+  wrap.innerHTML = galFiltered.map((item, i) => `
+    <div class="swiper-slide gal-slide" data-idx="${i}">
+      <img src="${item.src}" alt="${item.cap}" loading="lazy"/>
+      <div class="gal-slide-overlay">
+        <span class="gal-slide-cap">${item.cap}</span>
+      </div>
+      <div class="gal-slide-icon"><i class="fas fa-expand-alt"></i></div>
+    </div>
+  `).join('');
+
+  /* Destroy existing swiper before creating new one */
+  if (galSwiper) {
+    galSwiper.destroy(true, true);
+    galSwiper = null;
+  }
+
+  /* Re-initialize Swiper */
+  galSwiper = new Swiper('.gal-swiper', {
+    loop: galFiltered.length > 3,
+    autoplay: { delay: 2800, disableOnInteraction: false, pauseOnMouseEnter: true },
+    slidesPerView: 1,
+    spaceBetween: 12,
+    speed: 700,
+    navigation: {
+      nextEl: '.gal-next',
+      prevEl: '.gal-prev',
+    },
+    pagination: {
+      el: '.gal-pag',
+      clickable: true,
+      dynamicBullets: true,
+    },
+    breakpoints: {
+      480:  { slidesPerView: 1.5, spaceBetween: 14 },
+      640:  { slidesPerView: 2,   spaceBetween: 16 },
+      900:  { slidesPerView: 3,   spaceBetween: 20 },
+      1200: { slidesPerView: 3.5, spaceBetween: 24 },
+    },
+  });
+
+  /* Click to open lightbox */
+  wrap.querySelectorAll('.gal-slide').forEach(slide => {
+    slide.addEventListener('click', () => {
+      const idx = parseInt(slide.dataset.idx);
+      openLB(idx);
+    });
+  });
 }
-document.querySelectorAll('.gf-btn').forEach(btn=>btn.addEventListener('click',()=>{
-  document.querySelectorAll('.gf-btn').forEach(b=>b.classList.remove('active'));
-  btn.classList.add('active');renderGal(btn.dataset.cat);
+
+/* Lightbox */
+function openLB(i) { lbIdx=i; updateLB(); document.getElementById('lightbox').classList.add('open'); document.body.style.overflow='hidden'; }
+function closeLB() { document.getElementById('lightbox').classList.remove('open'); document.body.style.overflow=''; }
+function updateLB() { const it=galFiltered[lbIdx]; if(!it)return; document.getElementById('lbImg').src=it.src; document.getElementById('lbCap').textContent=it.cap; }
+document.getElementById('lbClose').addEventListener('click', closeLB);
+document.getElementById('lbPrev').addEventListener('click', () => { lbIdx=(lbIdx-1+galFiltered.length)%galFiltered.length; updateLB(); });
+document.getElementById('lbNext').addEventListener('click', () => { lbIdx=(lbIdx+1)%galFiltered.length; updateLB(); });
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('lightbox').classList.contains('open')) return;
+  if (e.key==='Escape') closeLB();
+  if (e.key==='ArrowLeft') { lbIdx=(lbIdx-1+galFiltered.length)%galFiltered.length; updateLB(); }
+  if (e.key==='ArrowRight') { lbIdx=(lbIdx+1)%galFiltered.length; updateLB(); }
+});
+
+/* Gallery filter buttons */
+document.querySelectorAll('.gf-btn').forEach(btn => btn.addEventListener('click', () => {
+  document.querySelectorAll('.gf-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+  renderGal(btn.dataset.cat);
 }));
-function openLB(i){lbIdx=i;updateLB();document.getElementById('lightbox').classList.add('open');document.body.style.overflow='hidden';}
-function closeLB(){document.getElementById('lightbox').classList.remove('open');document.body.style.overflow='';}
-function updateLB(){const it=galFiltered[lbIdx];if(!it)return;document.getElementById('lbImg').src=it.src;document.getElementById('lbCap').textContent=it.cap;}
-document.getElementById('lbClose').addEventListener('click',closeLB);
-document.getElementById('lbPrev').addEventListener('click',()=>{lbIdx=(lbIdx-1+galFiltered.length)%galFiltered.length;updateLB();});
-document.getElementById('lbNext').addEventListener('click',()=>{lbIdx=(lbIdx+1)%galFiltered.length;updateLB();});
-document.addEventListener('keydown',e=>{if(!document.getElementById('lightbox').classList.contains('open'))return;if(e.key==='Escape')closeLB();if(e.key==='ArrowLeft'){lbIdx=(lbIdx-1+galFiltered.length)%galFiltered.length;updateLB();}if(e.key==='ArrowRight'){lbIdx=(lbIdx+1)%galFiltered.length;updateLB();}});
 
 /* ══════════════════════════════
    REVIEWS
@@ -390,7 +442,7 @@ function applyContact(){
   ['fbBtn','ftFb'].forEach(id=>{const e=document.getElementById(id);if(e)e.href=s.facebook;});
   const ce=document.getElementById('cEmail');if(ce)ce.textContent=c.email;
   const ca=document.getElementById('cAddr');if(ca)ca.textContent=c.address;
-  ['ftAddr'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=c.address.split('·')[0].trim();});
+  ['ftAddr'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=c.address;});
   ['ftEmail'].forEach(id=>{const e=document.getElementById(id);if(e)e.textContent=c.email;});
 }
 
@@ -491,6 +543,8 @@ function fillAdm(){
   document.getElementById('sIGH').value=D.social.igHandle;
   document.getElementById('sFB').value=D.social.facebook;
   const mu=document.getElementById('aMapUrl');if(mu)mu.value=D.mapUrl||'';
+  const om=document.getElementById('aOwnerMsg');if(om)om.value=D.ownerMessage||'';
+  const od=document.getElementById('aOwnerDesc');if(od)od.value=D.ownerDesc||'';
   renderAdmAmen();
   renderAdmRevs();
   renderAdmGal();
@@ -523,7 +577,7 @@ window.addRev=addRev;window.delRev=delRev;
 function renderAdmGal(){document.getElementById('galAdmList').innerHTML=D.gallery.map(g=>`<div class="adm-row"><div class="adm-row-info"><h5>${g.cap}</h5><p>${g.cat}</p></div><button class="btn-del" onclick="delGal(${g.id})"><i class="fas fa-trash"></i></button></div>`).join('');}
 let pendingGalSrc='';
 function handleGalUpload(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{pendingGalSrc=e.target.result;aMsg('Image ready — fill caption & click Add.','ok');};r.readAsDataURL(file);}
-function addGalItem(){const cap=document.getElementById('nGCap').value.trim(),cat=document.getElementById('nGCat').value,wide=document.getElementById('nGWide').value==='true';if(!cap||!pendingGalSrc){aMsg('Upload image and add caption.','err');return;}D.gallery.push({id:Date.now(),src:pendingGalSrc,cap,cat,wide});save();renderGal('all');renderAdmGal();aMsg('Added!','ok');document.getElementById('nGCap').value='';pendingGalSrc='';}
+function addGalItem(){const cap=document.getElementById('nGCap').value.trim(),cat=document.getElementById('nGCat').value;if(!cap||!pendingGalSrc){aMsg('Upload image and add caption.','err');return;}D.gallery.push({id:Date.now(),src:pendingGalSrc,cap,cat});save();renderGal('all');renderAdmGal();aMsg('Added!','ok');document.getElementById('nGCap').value='';pendingGalSrc='';}
 function delGal(id){if(!confirm('Remove?'))return;D.gallery=D.gallery.filter(g=>g.id!==id);save();renderGal('all');renderAdmGal();aMsg('Removed.','ok');}
 window.addGalItem=addGalItem;window.delGal=delGal;window.handleGalUpload=handleGalUpload;
 function updateOwnerPhoto(input){const file=input.files[0];if(!file)return;const r=new FileReader();r.onload=e=>{const img=document.getElementById('ownerPhoto');if(img)img.src=e.target.result;D.ownerPhoto=e.target.result;save();aMsg('Owner photo updated!','ok');};r.readAsDataURL(file);}
@@ -542,7 +596,7 @@ document.addEventListener('DOMContentLoaded', () => {
   renderAmen();
   renderGal('all');
   renderRevs();
-  renderMenu('all');
+  renderMenu('snacks');   /* Default = snacks, "All" tab removed */
   initMenuTabs();
   applyContact();
   applyOwnerData();
@@ -551,4 +605,5 @@ document.addEventListener('DOMContentLoaded', () => {
   observeReveal();
   setTimeout(() => document.body.classList.add('loaded'), 100);
 });
+
 

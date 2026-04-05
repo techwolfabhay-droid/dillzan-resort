@@ -458,8 +458,8 @@ const RATE = 3999;
 const ROOM_CONFIG = {
   'Deluxe Room' : { min:2, max:2 },
   'Premium Room': { min:2, max:3 },
-  'Triple Room' : { min:5, max:6 },
-  'Family Room' : { min:4, max:5 },
+  'Triple Room' : { min:3, max:6 },
+  'Family Room' : { min:3, max:5 },
   'Dormitory'   : { min:1, max:8 },
 };
 

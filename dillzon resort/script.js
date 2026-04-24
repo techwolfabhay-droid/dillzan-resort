@@ -454,7 +454,7 @@ function applyContact(){
 /* ══════════════════════════════
    ROOM CONFIG + PRICING
 ══════════════════════════════ */
-const RATE = 3999;
+const RATE = 3500;
 const ROOM_CONFIG = {
   'Deluxe Room' : { min:2, max:2 },
   'Premium Room': { min:2, max:3 },
